@@ -1,6 +1,8 @@
 import React from 'react';
 import './LoginPage.scss';
 
+import { connect } from 'react-redux';
+
 class LoginPage extends React.Component {
     constructor ( props ) {
         super ( props )
@@ -10,13 +12,14 @@ class LoginPage extends React.Component {
     }
     render(){
         return (
+            
             <div className = "LoginPage">               
                     <input 
                         type="text" 
                         id="login" 
                         className="fadeIn second" 
                         name="login" 
-                        placeholder="login" />
+                        placeholder={""+this.props.ss}/>
                     <input 
                         type="text" 
                         id="password" 
@@ -33,4 +36,9 @@ class LoginPage extends React.Component {
     }
 }
 
-export default LoginPage;
+let mapState = ( state ) =>{
+    return {
+        ss: state.curUserId
+    }
+}
+export default connect(mapState)(LoginPage);
