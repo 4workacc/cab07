@@ -10,8 +10,31 @@ class LoginPage extends React.Component {
         this.clickLPSubmit = this.clickLPSubmit.bind( this );
     }
     clickLPSubmit(){
+        // fetch to server
+        // if login and pass exist -> tryToLogin
+        // else showErr
         this.props.LP_tryToLogin("asd");       
     }  
+    LP_fetchToServer() {
+        fetch("https://api.example.com/items")
+        .then(res => res.json())
+        .then(
+          (result) => {
+            this.setState({
+              isLoaded: true,
+              items: result.items
+            });
+          },
+          // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
+          // чтобы не перехватывать исключения из ошибок в самих компонентах.
+          (error) => {
+            this.setState({
+              isLoaded: true,
+              error
+            });
+          }
+        )
+    }
     render(){
         return (            
             <div className = "LoginPage">               
