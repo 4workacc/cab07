@@ -2,17 +2,18 @@ import React from 'react';
 import './LoginPage.scss';
 
 import { connect } from 'react-redux';
+import ALoginIn from '../../redux/actions/ALogIn';
 
 class LoginPage extends React.Component {
     constructor ( props ) {
-        super ( props )
+        super ( props );
+        this.clickLPSubmit = this.clickLPSubmit.bind( this );
     }
     clickLPSubmit(){
-        alert();
-    }
+        this.props.LP_tryToLogin("asd");       
+    }  
     render(){
-        return (
-            
+        return (            
             <div className = "LoginPage">               
                     <input 
                         type="text" 
@@ -41,4 +42,9 @@ let mapState = ( state ) =>{
         ss: state.curUserId
     }
 }
-export default connect(mapState)(LoginPage);
+let mapDispatch = dispatch => {
+    return {
+        LP_tryToLogin : (usNamePass) => dispatch ( ALoginIn( usNamePass ))
+    }
+}
+export default connect(mapState, mapDispatch ) (LoginPage);
