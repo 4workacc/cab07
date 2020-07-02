@@ -5,7 +5,8 @@ let initRed = (state = initState, action) => {
         case "LOG_IN" : 
             return {
                 ...state,
-                curUserId : action.data.newUserId            
+                curUserId : action.data.newUserId,
+                curPage : "MainPage"          
                 }
         default : 
             return state

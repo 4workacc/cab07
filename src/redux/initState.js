@@ -1,6 +1,7 @@
 let initState = {
     curUserId : -1,
-    curScreen : "LoginPage"
+    curPage : "LoginPage",
+    curSubPage : "none"    
 }
 
 export default initState;

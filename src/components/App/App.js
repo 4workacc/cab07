@@ -9,20 +9,25 @@ class App extends React.Component {
   constructor ( props ) {
     super ( props );
     this.state = {
-      curPage : <LoginPage/>
+      curPage : <LoginPage/>,
+      curSubPage : "none"
     }   
   }
   static getDerivedStateFromProps(nextProps, state) {
-    let curComp = <LoginPage />;
-    if (nextProps.curId === -1 ) {      
-      curComp = <LoginPage />;
-    }
-    else {
-      curComp = <MainPage />;
+    let curPage = <LoginPage />;
+    let curSubPage = "none";
+    switch ( nextProps.curPage ) {
+      case "LoginPage" : curPage = <LoginPage />; break;
+      case "MainPage"  : curPage = <MainPage />; break;
+      default : curPage = <LoginPage />
+    } 
+    switch ( nextProps.curSubPage ) {
+      default : curSubPage = "none"
     }
     return {
       ...state,
-      curPage : curComp
+      curPage : curPage,
+      curSubPage : curSubPage
     };
   }
    
@@ -30,13 +35,16 @@ class App extends React.Component {
     return (
       <div className = "App">
         { this.state.curPage }
+        { this.state.curSubPage }
       </div>
     )
   } 
 }
 let mapState = state =>{
   return {
-    curId : state.curUserId
+    curId : state.curUserId,
+    curPage : state.curPage,
+    curSubPage : state.curSubPage
   }   
 }
 
