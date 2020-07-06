@@ -53,6 +53,7 @@ class MP_Menu extends React.Component {
         }
         this.retCurMenu = this.retCurMenu.bind ( this );
         this.menuElementClick = this.menuElementClick.bind ( this );
+        this.sliderButtonClick = this.sliderButtonClick.bind ( this );
     }
     retCurMenu() {
         let qq = [ 
@@ -79,13 +80,38 @@ class MP_Menu extends React.Component {
     menuElementClick( target ){
         alert ( target )
     }
+    sliderButtonClick ( i ){
+        let startMenuIndex = this.state.curStartMenuIndex;        
+        if ( i > 0 ) {
+            if ( startMenuIndex <4 ) { startMenuIndex += 1} 
+            else { startMenuIndex = 0}
+        }
+        else {
+            if ( startMenuIndex > 1) { startMenuIndex -= 1}
+            else { startMenuIndex = 4}
+        }
+        this.setState((state) =>({
+            ...state,           
+            curStartMenuIndex : startMenuIndex
+        }))
+    }
     componentDidMount(){
         this.retCurMenu();
     }
     render(){
         return(
             <div className = "MP_Menu">
+                <div 
+                    className = "MP_Menu_but MP_Menu_butL"
+                    onClick = {()=>{ 
+                            this.sliderButtonClick( -1 ); 
+                            this.retCurMenu() }}></div>
                { this.state.curMenuElements }
+               <div 
+                    className = "MP_Menu_but MP_Menu_butR"
+                    onClick = {()=>{ 
+                            this.sliderButtonClick( 1 );
+                            this.retCurMenu() }}></div>
             </div>
         )
     }
