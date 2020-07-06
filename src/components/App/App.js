@@ -9,17 +9,17 @@ class App extends React.Component {
   constructor ( props ) {
     super ( props );
     this.state = {
-      curPage : <LoginPage/>,
+      curPage : <MainPage />,
       curSubPage : "none"
     }   
   }
   static getDerivedStateFromProps(nextProps, state) {
-    let curPage = <LoginPage />;
+    let curPage = <MainPage />;
     let curSubPage = "none";
     switch ( nextProps.curPage ) {
       case "LoginPage" : curPage = <LoginPage />; break;
       case "MainPage"  : curPage = <MainPage />; break;
-      default : curPage = <LoginPage />
+      default : curPage = <MainPage />
     } 
     switch ( nextProps.curSubPage ) {
       default : curSubPage = "none"

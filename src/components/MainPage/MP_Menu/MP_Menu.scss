@@ -1,0 +1,22 @@
+.MP_Menu {
+    position: absolute;
+    width: 1000px;
+    height: 700px;
+    left: 50%;
+    top: 75px;
+    border: 1px solid black;
+    margin-left: -500px;
+
+    padding-left: 50px;
+    padding-right: 50px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;   
+}
+.MP_Menu_el{
+    width: 200px;
+    height: 600px;
+    border: 1px solid black;
+}

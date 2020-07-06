@@ -1,6 +1,7 @@
 let initState = {
     curUserId : -1,
-    curPage : "LoginPage",
+    curPage : "MainPage",
+    curMenuSubPage : "MP_Menu",
     curSubPage : "none"    
 }
 
