@@ -42,7 +42,7 @@ class MainPage extends React.Component {
         }
     }
     showCurMenuSet(){
-        this.state
+        // this.state
     }
     render() {
         return (
