@@ -126,7 +126,22 @@ const MP_Menu = () => {
             menuElements[curMenuIndex + 2],
             menuElements[curMenuIndex + 3]
         ];
-        setCurMenuElements( { arr });        
+        setCurMenuElements(
+            [
+                <div className = {arr[0].class}>
+                        <p>{arr[0].title}</p>
+                </div>,
+                <div className = {arr[1].class}>
+                    <p>{arr[1].title}</p>
+                </div>,
+                <div className = {arr[2].class}>
+                    <p>{arr[2].title}</p>
+                </div>,
+                <div className = {arr[3].class}>
+                    <p>{arr[3].title}</p>
+                </div>
+            ]
+        );        
     }, [curMenuIndex]);
     return(
         <div className = "MP_Menu">
