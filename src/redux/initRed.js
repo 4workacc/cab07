@@ -7,7 +7,12 @@ let initRed = (state = initState, action) => {
                 ...state,
                 curUserId : action.data.newUserId,
                 curPage : "MainPage"          
-                }
+                };
+        case "SHOW_PAGE" :        
+            return {
+                ...state, 
+                curMenuPage : action.page
+            };
         default : 
             return state
     }

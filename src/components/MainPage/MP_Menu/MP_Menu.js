@@ -1,91 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import "./MP_Menu.scss";
 
-// class MP_Menu extends React.Component {
-//     constructor ( props ){
-//         super ( props ) ;
-//         this.state = {
-//            ,
-//             curMenuElements : [                
-//             ],
-//             curStartMenuIndex : 0
-//         }
-//         this.retCurMenu = this.retCurMenu.bind ( this );
-//         this.menuElementClick = this.menuElementClick.bind ( this );
-//         this.sliderButtonClick = this.sliderButtonClick.bind ( this );
-//     }
-//     retCurMenu() {
-//         let qq = [ 
-//             this.state.menuElements[ this.state.curStartMenuIndex ],
-//             this.state.menuElements[ this.state.curStartMenuIndex +1 ],
-//             this.state.menuElements[ this.state.curStartMenuIndex +2],
-//             this.state.menuElements[ this.state.curStartMenuIndex +3]
-//         ]
-//         let arr = [];
-//         qq.forEach( el => {
-//             arr.push(
-//                 <div 
-//                     className = {el.class}
-//                     onClick = { () => this.menuElementClick(el.target) }>
-//                     <p>{el.title}</p>
-//                 </div>
-//             )
-//         })
-//         this.setState( (state) =>({
-//             ...state,
-//             curMenuElements : arr
-//         }))
-//     }
-//     menuElementClick( target ){
-//         alert ( target )
-//     }
-//     sliderButtonClick ( i ){
-//         let startMenuIndex = this.state.curStartMenuIndex;        
-//         if ( i > 0 ) {
-//             if ( startMenuIndex <4 ) { startMenuIndex += 1}            
-//         }
-//         else {
-//             if ( startMenuIndex > 0) { startMenuIndex -= 1}           
-//         }
-//         this.setState((state) =>({
-//             ...state,           
-//             curStartMenuIndex : startMenuIndex
-//         }))
-//     }
-//     componentDidMount(){
-//         this.retCurMenu();
-//     }
-//     render(){
-//         return(
-//             <div className = "MP_Menu">
-//                 <div 
-//                     className = "MP_Menu_but MP_Menu_butL"
-//                     onClick = {()=>{ 
-//                             this.sliderButtonClick( -1 ); 
-//                             this.retCurMenu() }}></div>
-//                { this.state.curMenuElements }
-//                <div 
-//                     className = "MP_Menu_but MP_Menu_butR"
-//                     onClick = {()=>{ 
-//                             this.sliderButtonClick( 1 );
-//                             this.retCurMenu()}}></div>
-//             </div>
-//         )
-//     }
-// }
+import { useDispatch } from 'react-redux';
+import AShowPage from '../../../redux/actions/AShowPage';
 
 const MP_Menu = () => {
+    // redux
+    const dispatch = useDispatch();
+    // 
     const [ curMenuIndex, changeIndex ] = useState(0);
-    const menuElements = [
-                        {   
-                            "title":"Галоўнае меню",
-                            "class" : "MP_Menu_el MP_Menu_el_0",
-                            "target" : "MP_Menu"
-                        },
+    const menuElements = [                        
                         {
                             "title" : "Напрацоўкі",
                             "class" : "MP_Menu_el MP_Menu_el_1",
-                            "target": "MP_Nap"
+                            "target": "MP_Napr"
                         },
                         {
                             "title" : "Гульні",
@@ -128,21 +56,30 @@ const MP_Menu = () => {
         ];
         setCurMenuElements(
             [
-                <div className = {arr[0].class}>
-                        <p>{arr[0].title}</p>
+                <div 
+                    className = {arr[0].class}
+                    onClick={() =>{dispatch(AShowPage(arr[0].target))}}>
+                    <p>{arr[0].title}</p>
                 </div>,
-                <div className = {arr[1].class}>
+                <div 
+                    className = {arr[1].class}
+                    onClick={() =>{dispatch(AShowPage(arr[1].target))}}>
                     <p>{arr[1].title}</p>
                 </div>,
-                <div className = {arr[2].class}>
+                <div 
+                    className = {arr[2].class}
+                    onClick={() =>{dispatch(AShowPage(arr[2].target))}}>
                     <p>{arr[2].title}</p>
                 </div>,
-                <div className = {arr[3].class}>
+                <div 
+                    className = {arr[3].class}
+                    onClick={() =>{dispatch(AShowPage(arr[3].target))}}>
                     <p>{arr[3].title}</p>
                 </div>
             ]
         );        
     }, [curMenuIndex]);
+    
     return(
         <div className = "MP_Menu">
             <div 
@@ -151,7 +88,7 @@ const MP_Menu = () => {
             { curMenuElements }
             <div 
                 className = "MP_Menu_but MP_Menu_butR"
-                onClick =  {() => curMenuIndex < 4 ? changeIndex(curMenuIndex + 1):null}></div>
+                onClick =  {() => curMenuIndex < 3 ? changeIndex(curMenuIndex + 1):null}></div>
         </div>
     )
 }
