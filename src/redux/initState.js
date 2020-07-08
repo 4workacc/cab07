@@ -25,18 +25,21 @@ let initState = {
     mpTestsList: [
         {
             "title" : "test0",
-            "link" : "",
-            "isTrial" : "1"
+            "target" : "TEST_test0",
+            "isTrial" : "1",
+            "class" : []
         },
         {
             "title" : "test1",
-            "link" : "",
-            "isTrial" : "0"
+            "target" : "",
+            "isTrial" : "0",
+            "class": []
         },
         {
             "title" : "test2",
-            "link" : "",
-            "isTrial" : "1"
+            "target" : "",
+            "isTrial" : "1",
+            "class" :[]
         }
     ],
     mpAnimsList : [
@@ -106,7 +109,7 @@ let initState = {
             "link" : "",
             "isTrial" : "1"
         }
-    ]
+    ]    
 }
 
 export default initState;

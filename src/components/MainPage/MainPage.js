@@ -12,6 +12,9 @@ import MP_Tvor from './MP_Tvor/MP_Tvor';
 import MP_Strat from './MP_Strat/MP_Strat';
 import MP_Misl from './MP_Misl/MP_Misl';
 
+//tests
+import Test0 from '../readyPages/tests/test0/test0';
+
 import { useSelector } from 'react-redux';
 
 const MainPage = () =>{
@@ -35,6 +38,8 @@ const MainPage = () =>{
             case "MP_Tvor" :  qq = <MP_Tvor />; break;
             case "MP_Strat" : qq = <MP_Strat />; break;
             case "MP_Misl" : qq = <MP_Misl />; break;
+
+            case "TEST_test0" : qq = <Test0 />; break;
             default : qq = <MP_Menu />;
         }
         setPage( qq );

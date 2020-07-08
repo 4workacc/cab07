@@ -1,18 +1,23 @@
 import React, {useState, useEffect} from 'react';
 import './MP_Tests.scss';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import AShowPage from '../../../redux/actions/AShowPage';
 
 const MP_Tests = () => {
     const TestsList = useSelector( state => state.mpTestsList);
     const [ testList, setList] = useState();
+    const dispatch = useDispatch();
     useEffect ( ()=>{
         let arr = [];        
         TestsList.map( el =>{
             arr.push(
                 <li 
                     className = {"MP_Tests_li"+el.isTrial}
-                    title = {el.isTrial==="0"?"Для карыстання неабходна аўтарызація!":""}>
+                    title = {el.isTrial==="0"?"Для карыстання неабходна аўтарызація!":""}
+                    onClick = {()=>{
+                        dispatch( AShowPage(el.target))
+                    }}>
                         <a>{el.title}</a>
                     </li>)
         });
