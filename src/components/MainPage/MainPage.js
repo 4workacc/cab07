@@ -21,7 +21,9 @@ const MainPage = () =>{
     // const count = useSelector(state => state.counter.count);
     const curUserId = useSelector( state => state.curUserId );
     const curMenuPage = useSelector ( state => state.curMenuPage);
-
+    useEffect(() => {
+        document.title = "Вугалок беларускай мовы"
+     }, []);
     useEffect(() => {
         let qq = <MP_Menu />;
         switch ( curMenuPage ) {
@@ -46,13 +48,34 @@ const MainPage = () =>{
                         type : "SHOW_PAGE",
                         page : "MP_Menu"
                     }) } >Галоўнае меню</li>
-                    <li onClick = { (xx) => this.NavClickHandler( "Напрацоўкі" ) }>Напрацоўкі</li>
-                    <li onClick = { (xx) => this.NavClickHandler( "Гульні" ) }>Гульні</li>
-                    <li onClick = { (xx) => this.NavClickHandler( "Анімацыі" ) }>Анімацыі</li>
-                    <li onClick = { (xx) => this.NavClickHandler( "Тэсты" ) }>Тэсты</li>
-                    <li onClick = { (xx) => this.NavClickHandler( "Творчасць" ) }>Творчасць</li>
-                    <li onClick = { (xx) => this.NavClickHandler( "Стратэгія" ) }>Стратэгія</li>
-                    <li onClick = { (xx) => this.NavClickHandler( "Мысленне" ) }>Мысленне</li>                       
+                    <li onClick = { () => dispatch({
+                        type : "SHOW_PAGE",
+                        page : "MP_Napr"
+                    }) }>Напрацоўкі</li>
+                    <li onClick = { () => dispatch({
+                        type : "SHOW_PAGE",
+                        page : "MP_Games"
+                    }) }>Гульні</li>
+                    <li onClick = { () => dispatch({
+                        type : "SHOW_PAGE",
+                        page : "MP_Anims"
+                     }) }>Анімацыі</li>
+                    <li onClick = { () => dispatch({
+                        type : "SHOW_PAGE",
+                        page : "MP_Tests"
+                    }) }>Тэсты</li>
+                    <li onClick = { () => dispatch({
+                        type : "SHOW_PAGE",
+                        page : "MP_Tvor"
+                    }) }>Творчасць</li>
+                    <li onClick = { () => dispatch({
+                        type : "SHOW_PAGE",
+                        page : "MP_Strat"
+                    }) }>Стратэгія</li>
+                    <li onClick = { () => dispatch({
+                        type : "SHOW_PAGE",
+                        page : "MP_Misl"
+                    }) }>Мысленне</li>                       
                 </ul>
             </div>
             { curPage }
