@@ -37,7 +37,7 @@ class LoginPage extends React.Component {
     }
     render(){
         return (            
-            <div className = "LoginPage">               
+            <div className = {"LoginPage "}>               
                     <input 
                         type="text" 
                         id="login" 

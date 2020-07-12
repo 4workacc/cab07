@@ -13,7 +13,10 @@ import MP_Strat from './MP_Strat/MP_Strat';
 import MP_Misl from './MP_Misl/MP_Misl';
 
 //tests
-import Test0 from '../readyPages/tests/test0/test0';
+import Test0 from '../readyPages/nTest0/test0';
+// portal
+import MPortal from '../Portal/MPortal';
+import LoginPage from '../LoginPage/LoginPage';
 
 import { useSelector } from 'react-redux';
 
@@ -85,6 +88,9 @@ const MainPage = () =>{
             </div>
             { curPage }
             { curUserId }          
+            <MPortal>
+                <LoginPage />
+            </MPortal>
         </div>
     )
 }

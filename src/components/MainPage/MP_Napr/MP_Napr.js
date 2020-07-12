@@ -5,13 +5,14 @@ import { useSelector } from 'react-redux';
 
 const MP_Napr = () => {
     const NaprList = useSelector( state => state.mpNaprList);
+    const userId = useSelector ( state => state.curUserId);
     const [ naprList, setList] = useState();
     useEffect ( ()=>{
         let arr = [];        
         NaprList.map( el =>{
             arr.push(
                 <li 
-                    className = {"MP_Napr_li"+el.isTrial}
+                    className = { (el.isTrial === "0" && userId === -1)?"MP_Napr_li0":"MP_Napr_li1"}    
                     title = {el.isTrial==="0"?"Для карыстання неабходна аўтарызація!":""}>
                         <a>{el.title}</a>
                     </li>)

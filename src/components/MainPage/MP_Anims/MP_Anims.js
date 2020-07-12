@@ -5,13 +5,14 @@ import { useSelector } from 'react-redux';
 
 const MP_Anims = () => {
     const AnimList = useSelector( state => state.mpAnimsList);
+    const userId = useSelector ( state => state.curUserId);
     const [ animList, setList] = useState();
     useEffect ( ()=>{
         let arr = [];        
         AnimList.map( el =>{
             arr.push(
                 <li 
-                    className = {"MP_Anim_li"+el.isTrial}
+                className = { (el.isTrial === "0" && userId === -1)?"MP_Anim_li0":"MP_Anim_li1"}
                     title = {el.isTrial==="0"?"Для карыстання неабходна аўтарызація!":""}>
                         <a>{el.title}</a>
                     </li>)
