@@ -1,8 +1,6 @@
 import React , { useEffect, useState} from 'react';
 import "./test0.scss";
 
-import { Button } from 'react-bootstrap';
-
 const Test0 = () =>{
     const questBase = [
         [
@@ -245,9 +243,9 @@ const Test0 = () =>{
             <input 
                 type = "text"
                 className = {"test0Text test0Text"+isVisibleText}></input>
-            <Button 
+            <input type = "button" 
                 variant="primary"
-                className = "test0But">Адказаць</Button>{' '}                
+                className = "test0But">Адказаць</input>                
         </div>
     )
 }

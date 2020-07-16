@@ -7,13 +7,19 @@ import ALoginIn from '../../redux/actions/ALogIn';
 class LoginPage extends React.Component {
     constructor ( props ) {
         super ( props );
+        this.state = {
+            isShowed : 1
+        }
         this.clickLPSubmit = this.clickLPSubmit.bind( this );
     }
     clickLPSubmit(){
         // fetch to server
         // if login and pass exist -> tryToLogin
         // else showErr
-        this.props.LP_tryToLogin("asd");       
+        // this.props.LP_tryToLogin("asd");       
+        this.setState({            
+            isShowed : 0
+        })
     }  
     LP_fetchToServer() {
         fetch("https://api.example.com/items")
@@ -37,19 +43,19 @@ class LoginPage extends React.Component {
     }
     render(){
         return (            
-            <div className = {"LoginPage "}>               
+            <div className = {"LoginPage LPop"+this.state.isShowed}>               
                     <input 
                         type="text" 
                         id="login" 
                         className="fadeIn second" 
                         name="login" 
-                        placeholder={""+this.props.ss}/>
+                        placeholder="Ваш логін"/>
                     <input 
                         type="text" 
                         id="password" 
                         className="fadeIn third" 
                         name="login" 
-                        placeholder="password" />
+                        placeholder="Ваш пароль" />
                     <input 
                         type="submit" 
                         className="fadeIn fourth LPsubmit" 
