@@ -3,6 +3,7 @@ let initState = {
     curPage : "MainPage",
     curMenuPage : "MP_Menu",
     curSubPage : "none",
+    curShowLoginPanel : 0,    
 
     mpNaprList : [
         {

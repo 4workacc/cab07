@@ -27,6 +27,7 @@ const MainPage = () =>{
     // const count = useSelector(state => state.counter.count);
     const curUserId = useSelector( state => state.curUserId );
     const curMenuPage = useSelector ( state => state.curMenuPage);
+    
     useEffect(() => {
         document.title = "Вугалок беларускай мовы"
      }, []);
@@ -87,7 +88,13 @@ const MainPage = () =>{
                 </ul>
             </div>
             { curPage }
-            { curUserId }          
+            { curUserId }  
+            <div 
+                className = "MP_LoginPageBut"
+                onClick = {() => dispatch({
+                    type : "SWITCH_LOGIN_PANEL",
+                    newState : 1                    
+                })}>Уваход</div>        
             <MPortal>
                 <LoginPage />
             </MPortal>

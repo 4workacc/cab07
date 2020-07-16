@@ -13,6 +13,11 @@ let initRed = (state = initState, action) => {
                 ...state, 
                 curMenuPage : action.page
             };
+        case "SWITCH_LOGIN_PANEL" : 
+            return {
+                ...state,
+                curShowLoginPanel : action.newState
+            }
         default : 
             return state
     }
