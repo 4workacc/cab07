@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import './MP_Anims.scss';
+import './MP_Anims.css';
 
 import { useSelector } from 'react-redux';
 

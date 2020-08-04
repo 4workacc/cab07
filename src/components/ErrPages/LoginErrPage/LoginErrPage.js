@@ -1,5 +1,5 @@
 import React from 'react';
-import './LoginErrPage.scss';
+import './LoginErrPage.css';
 // redux
 import { connect } from 'react-redux';
 

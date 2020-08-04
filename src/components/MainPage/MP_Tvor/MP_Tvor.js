@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import './MP_Tvor.scss';
+import './MP_Tvor.css';
 
 import { useSelector } from 'react-redux';
 

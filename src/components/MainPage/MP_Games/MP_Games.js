@@ -1,5 +1,5 @@
 import React from 'react';
-import './MP_Games.scss';
+import './MP_Games.css';
 
 const MP_Games = () => {
     return (

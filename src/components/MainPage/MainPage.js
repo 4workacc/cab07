@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react';
-import "./MainPage.scss";
+import "./MainPage.css";
 
 import { useDispatch } from 'react-redux'; 
 

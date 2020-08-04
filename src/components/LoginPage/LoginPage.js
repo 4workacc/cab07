@@ -22,7 +22,7 @@
 
 
 import React, { useState, useEffect} from 'react';
-import "./LoginPage.scss";
+import "./LoginPage.css";
 
 import { useDispatch } from 'react-redux'; 
 import { useSelector } from 'react-redux';

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import './MP_Tests.scss';
+import './MP_Tests.css';
 
 import { useSelector, useDispatch } from 'react-redux';
 import AShowPage from '../../../redux/actions/AShowPage';

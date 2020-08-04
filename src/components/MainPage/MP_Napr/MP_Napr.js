@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './MP_Napr.scss';
+import './MP_Napr.css';
 
 import { useSelector } from 'react-redux';
 

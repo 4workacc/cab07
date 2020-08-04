@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import './MP_Misl.scss';
+import './MP_Misl.css';
 
 import { useSelector } from 'react-redux';
 
