@@ -10,8 +10,13 @@ header('Content-Type: application/json');
 
 $id = -1;
 
-if ($_GET['login'] == "admin" && $_GET['pass'] == "admin" ) { $id = 1 }
+if ($_GET['login'] == "admin" && $_GET['pass'] == "admin" )  
+	{
+		$id = 1;
+	} 
 
-echo json_encode($_GET);
+echo json_encode(array(
+	"userId" => $id
+));
 
 ?>

@@ -16,7 +16,11 @@ const LoginPage = () =>{
         return response.json();
       })
       .then((data) => {
-        alert(data.login);
+        dispatch({
+              type : "SWITCH_LOGIN_PANEL",
+              newState : 0,
+              userId : data.userId                    
+          })
       });  
     }
 

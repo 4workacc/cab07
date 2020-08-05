@@ -16,7 +16,8 @@ let initRed = (state = initState, action) => {
         case "SWITCH_LOGIN_PANEL" : 
             return {
                 ...state,
-                curShowLoginPanel : action.newState
+                curShowLoginPanel : action.newState,
+                curUserId : action.userId
             }
         default : 
             return state
