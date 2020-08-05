@@ -5,18 +5,18 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 
 const LoginPage = () =>{
-
+    const [login, setLogin] = useState("");
+    const [pass, setPass] = useState("");
     const curShowLoginPanel = useSelector( state => state.curShowLoginPanel );
     const dispatch = useDispatch();
 
-    let LP_fetchToServer = () => {
-      alert("!");
-      let xx = fetch('https://cab07.000webhostapp.com/index.php')
+    let LP_fetchToServer = () => {        
+      fetch('https://cab07.000webhostapp.com/login.php?login='+login+'&pass='+pass)
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        alert(data.age);
+        alert(data.login);
       });  
     }
 
@@ -27,13 +27,15 @@ const LoginPage = () =>{
                       id="login" 
                         className="fadeIn second" 
                         name="login" 
-                        placeholder="Ваш логін"/>
+                        placeholder="Ваш логін"
+                        onChange={(e)=>setLogin(e.target.value)}/>
                     <input 
                         type="text" 
                         id="password" 
                         className="fadeIn third" 
                         name="login" 
-                        placeholder="Ваш пароль" />
+                        placeholder="Ваш пароль" 
+                        onChange={(e)=>setPass(e.target.value)}/>
                     <input 
                         type="submit" 
                         className="fadeIn fourth LPsubmit" 
