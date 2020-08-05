@@ -1,26 +1,3 @@
-//     LP_fetchToServer() {
-//         fetch("https://api.example.com/items")
-//         .then(res => res.json())
-//         .then(
-//           (result) => {
-//             this.setState({
-//               isLoaded: true,
-//               items: result.items
-//             });
-//           },
-//           // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
-//           // чтобы не перехватывать исключения из ошибок в самих компонентах.
-//           (error) => {
-//             this.setState({
-//               isLoaded: true,
-//               error
-//             });
-//           }
-//         )
-//     }
-
-
-
 import React, { useState, useEffect} from 'react';
 import "./LoginPage.css";
 
@@ -31,6 +8,17 @@ const LoginPage = () =>{
 
     const curShowLoginPanel = useSelector( state => state.curShowLoginPanel );
     const dispatch = useDispatch();
+
+    let LP_fetchToServer = () => {
+      alert("!");
+      let xx = fetch('https://cab07.000webhostapp.com/index.php')
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        alert(data.age);
+      });  
+    }
 
     return (
         <div className = {"LoginPage LPop"+curShowLoginPanel}>               
@@ -50,10 +38,11 @@ const LoginPage = () =>{
                         type="submit" 
                         className="fadeIn fourth LPsubmit" 
                         value="Log In"
-                        onClick = {() => dispatch({
-                            type : "SWITCH_LOGIN_PANEL",
-                            newState : 0                    
-                        })}/>               
+                        // onClick = {() => dispatch({
+                        //     type : "SWITCH_LOGIN_PANEL",
+                        //     newState : 0                    
+                        // })}
+                        onClick = {() => LP_fetchToServer()}/>               
         </div>
     )
 }
