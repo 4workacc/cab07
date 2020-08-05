@@ -27,6 +27,7 @@ const MainPage = () =>{
     // const count = useSelector(state => state.counter.count);
     const curUserId = useSelector( state => state.curUserId );
     const curMenuPage = useSelector ( state => state.curMenuPage);
+    const curLoginButText = useSelector( state => state.curLoginButText)
     
     useEffect(() => {
         document.title = "Вугалок беларускай мовы"
@@ -94,7 +95,7 @@ const MainPage = () =>{
                 onClick = {() => dispatch({
                     type : "SWITCH_LOGIN_PANEL",
                     newState : 1                    
-                })}>Уваход</div>        
+                })}>{curLoginButText}</div>        
             <MPortal>
                 <LoginPage />
             </MPortal>

@@ -4,6 +4,7 @@ let initState = {
     curMenuPage : "MP_Menu",
     curSubPage : "none",
     curShowLoginPanel : 0,    
+    curLoginButText : "Уваход",
 
     mpNaprList : [
         {

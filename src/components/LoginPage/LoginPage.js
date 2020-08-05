@@ -16,13 +16,25 @@ const LoginPage = () =>{
         return response.json();
       })
       .then((data) => {
-        dispatch({
+        if ( data.userId >0 ) {
+            dispatch({
               type : "SWITCH_LOGIN_PANEL",
               newState : 0,
-              userId : data.userId                    
+              userId : data.userId,
+              newLoginButText : "Кабiнет"            
           })
-      });  
-    }
+        }
+        else {
+          alert ("Памылка");
+          dispatch({
+            type : "SWITCH_LOGIN_PANEL",
+            newState : 0,
+            userId : -1,
+            newLoginButText : "Уваход"    
+        });
+       }      
+      });
+     };
 
     return (
         <div className = {"LoginPage LPop"+curShowLoginPanel}>               
