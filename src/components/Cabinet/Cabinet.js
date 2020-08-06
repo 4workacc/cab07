@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux';
 
 const Cabinet = () => {
     const [curFIO, setFIO] = useState('');
+    const [curClass, setClass] = useState('');
+
     const curUserId = useSelector( state => state.curUserId );
 
     useEffect(() =>{           
@@ -13,13 +15,14 @@ const Cabinet = () => {
               return response.json();
             })
             .then((data) => {
-                alert( data.FIO);                
+                setFIO(data.FIO);     
+                setClass(data.CLASS);           
             });                           
     },[]);
     return (
-        <div className = "Cabinet">
-            Cabinet
+        <div className = "Cabinet">            
             {curFIO}
+            {curClass}
         </div>
     )
 }
