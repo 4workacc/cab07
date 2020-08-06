@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 const Cabinet = () => {
     const [curFIO, setFIO] = useState('');
     const [curClass, setClass] = useState('');
+    const [curTasks, setTasks] = useState([]);
 
     const curUserId = useSelector( state => state.curUserId );
 
@@ -17,14 +18,32 @@ const Cabinet = () => {
             .then((data) => {
                 setFIO(data.FIO);     
                 setClass(data.CLASS);           
+                setTasks(data.TASKS);               
             });                           
     },[]);
     return (
         <div className = "Cabinet">            
             {curFIO}
             {curClass}
+            
         </div>
     )
 }
 
 export default Cabinet;
+
+
+// "TASKS"  : [
+    // {
+    //     "TASK" : "TEST_t01",
+    //     "DATE_OPEN" : "2020-08-06_20-00",
+    //     "DATE_CLOSE " : "2020-08-08_20-00",
+    //     "ACTIVE" : 1,
+    //     "TRYES" : [
+    //         {
+    //             "DATE_START" : "-",
+    //             "DATE_END" : "-",
+    //             "RESULT" : "-"
+    //         }
+    //     ]
+    // }
