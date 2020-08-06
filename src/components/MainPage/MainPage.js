@@ -19,6 +19,8 @@ import MPortal from '../Portal/MPortal';
 import LoginPage from '../LoginPage/LoginPage';
 
 import { useSelector } from 'react-redux';
+import Cabinet from '../Cabinet/Cabinet';
+import AdminPanel from '../AdminPanel/AdminPanel';
 
 const MainPage = () =>{
     const dispatch = useDispatch();
@@ -44,12 +46,36 @@ const MainPage = () =>{
             case "MP_Strat" : qq = <MP_Strat />; break;
             case "MP_Misl" : qq = <MP_Misl />; break;
 
+            case "Cabinet" : qq = <Cabinet />; break;
+            case "AdminPanel" : qq = <AdminPanel />; break;
+
             case "TEST_test0" : qq = <Test0 />; break;
             default : qq = <MP_Menu />;
         }
         setPage( qq );
     }, [curMenuPage]);
-
+    let loginButHandler = () =>{
+        if (curUserId === -1) {
+            dispatch({
+                type : "SWITCH_LOGIN_PANEL",
+                newState : 1                    
+            })
+        }
+        else {
+            if ( curUserId === 12311 ) {
+                dispatch({
+                    type : "SHOW_PAGE",
+                    page : "AdminPanel"
+                })
+            }
+            else {
+                dispatch({
+                    type : "SHOW_PAGE",
+                    page : "Cabinet"
+                })
+            }
+        }
+    }
     return(
         <div className = "MainPage">
             <div className = "MP_MainNav">
@@ -92,10 +118,7 @@ const MainPage = () =>{
             { curUserId }  
             <div 
                 className = "MP_LoginPageBut"
-                onClick = {() => dispatch({
-                    type : "SWITCH_LOGIN_PANEL",
-                    newState : 1                    
-                })}>{curLoginButText}</div>        
+                onClick = {()=>loginButHandler()}>{curLoginButText}</div>        
             <MPortal>
                 <LoginPage />
             </MPortal>

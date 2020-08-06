@@ -7,16 +7,32 @@
 
 header('Content-Type: application/json');
 
+$datas = file_get_contents('./datas/LoginBase.json');
+$arr = json_decode($datas,true);
 
-$id = -1;
-
-if ($_GET['login'] == "admin" && $_GET['pass'] == "admin" )  
-	{
-		$id = 1;
-	} 
-
-echo json_encode(array(
-	"userId" => $id
-));
-
+if ( array_key_exists($_GET['login'], $arr)) {
+    if ( $arr[''.$_GET['login']]['pass'] === $_GET['pass']) {
+        echo json_encode(array(
+            "userId" => $arr[''.$_GET['login']]['id']
+        ));
+    }
+    else {
+        echo json_encode(array(
+            "userId" => -2
+        ));
+    }
+}
+else {
+    echo json_encode(array(
+        "userId" => -1
+    ));
+}
 ?>
+
+
+<!-- читает из json 
+пользователя в базе нет - id ==> -1
+пользователь есть
+    ввел правильный пароль - возврат id из json
+    ввел неправильный - возврат ==> -2
+ -->

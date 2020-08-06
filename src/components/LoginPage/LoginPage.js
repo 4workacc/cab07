@@ -55,11 +55,7 @@ const LoginPage = () =>{
                     <input 
                         type="submit" 
                         className="fadeIn fourth LPsubmit" 
-                        value="Log In"
-                        // onClick = {() => dispatch({
-                        //     type : "SWITCH_LOGIN_PANEL",
-                        //     newState : 0                    
-                        // })}
+                        value="Log In"                        
                         onClick = {() => LP_fetchToServer()}/>               
         </div>
     )

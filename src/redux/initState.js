@@ -1,5 +1,5 @@
 let initState = {
-    curUserId : -1,
+    curUserId : -1, //admin id = 12311
     curPage : "MainPage",
     curMenuPage : "MP_Menu",
     curSubPage : "none",
