@@ -1,5 +1,6 @@
 let initState = {
-    curUserId : -1,
+    curUserId : -1, //admin id = 12311
+    curUserFIO : '',
     curPage : "MainPage",
     curMenuPage : "MP_Menu",
     curSubPage : "none",
@@ -32,83 +33,83 @@ let initState = {
             "class" : []
         },
         {
-            "title" : "test1",
-            "target" : "",
-            "isTrial" : "0",
+            "title" : "11 клас. Выніковы тэст. Варыянт 1.",
+            "target" : "TEST_test1",
+            "isTrial" : "1",
             "class": []
         },
         {
-            "title" : "test2",
-            "target" : "",
+            "title" : "11 клас. Выніковы тэст. Варыянт 2.",
+            "target" : "TEST_test2",
             "isTrial" : "1",
             "class" :[]
         }
     ],
     mpAnimsList : [
         {
-            "title" : "anim0",
-            "link" : "",
+            "title" : "Анимация фразеалагизмы",
+            "target" : "ANIM_anim0",
             "isTrial" : "1"
         },
         {
             "title" : "anim1",
-            "link" : "",
+            "target" : "",
             "isTrial" : "0"
         },
         {
             "title" : "anim2",
-            "link" : "",
+            "target" : "",
             "isTrial" : "1"
         }
     ],
     mpTvorsList : [
         {
             "title" : "tvor0",
-            "link" : "",
+            "target" : "",
             "isTrial" : "1"
         },
         {
             "title" : "tvor1",
-            "link" : "",
+            "target" : "",
             "isTrial" : "0"
         },
         {
             "title" : "tvor2",
-            "link" : "",
+            "target" : "",
             "isTrial" : "1"
         }
     ],
     mpStratList : [
         {
             "title" : "strat0",
-            "link" : "",
+            "target" : "",
             "isTrial" : "1"
         },
         {
             "title" : "strat1",
-            "link" : "",
+            "target" : "",
             "isTrial" : "0"
         },
         {
             "title" : "strat2",
-            "link" : "",
+            "target" : "",
             "isTrial" : "1"
         }
     ],
     mpMislsList : [
         {
             "title" : "misl0",
-            "link" : "",
+            "target" : "",
             "isTrial" : "1"
         },
         {
             "title" : "misl1",
-            "link" : "",
+            "target" : "",
             "isTrial" : "0"
         },
         {
             "title" : "misl2",
-            "link" : "",
+            "target" : "",
             "isTrial" : "1"
         }
     ]    

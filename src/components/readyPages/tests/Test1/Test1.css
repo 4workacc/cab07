@@ -1,0 +1,52 @@
+.Test1 {
+    position: absolute;
+    width: 1000px;
+    height: 700px;
+    left: 50%;
+    top: 50%;
+    margin-left: -500px;
+    margin-top: -350px;
+}
+.Test1_none {
+    display: none;
+}
+.Test1_Main_AnsBar{
+    width: 90%;
+    position: absolute;
+    left: 50px;
+    top: 150px;
+    height: 500px;    
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-top: 2px solid lightseagreen;
+}
+.Test1_none {
+    display: none;
+}
+.Test1_Main_Ans_lab {
+    font: 25px "Times New Roman";
+}
+.Test1_Main_Quest{
+    font: 25px "Times Ner Roman";
+    width: 100%;
+    text-align: center;
+}
+.Test1_Main_But{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    margin-left: -25px;
+    margin-top: -25px;
+    border: 1px solid black;
+}
+.Test1_Res_Text{
+    font: 40px 'Times New Roman';
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 35%;
+}

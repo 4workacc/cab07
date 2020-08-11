@@ -1,14 +1,14 @@
 {
-    "us0" : {
-        "login" : "IvanovII",
-        "pass"  : "q1"
+    "admin" : {
+        "pass" : "admin",
+        "id"  : "12311"
     },
-    "us1" : {
-        "login" : "PetrovPP",
-        "pass"  : "q1"
+    "IvanovII" : {
+        "pass" : "1",
+        "id"  : "1"
     },
-    "us2" : {
-        "login" : "SidorovSS",
-        "pass"  : "q1"
+    "PetrovPP" : {
+        "pass" : "1",
+        "id"  : "2"
     }
 }
