@@ -47,69 +47,69 @@ let initState = {
     ],
     mpAnimsList : [
         {
-            "title" : "anim0",
-            "link" : "",
+            "title" : "Анимация фразеалагизмы",
+            "target" : "ANIM_anim0",
             "isTrial" : "1"
         },
         {
             "title" : "anim1",
-            "link" : "",
+            "target" : "",
             "isTrial" : "0"
         },
         {
             "title" : "anim2",
-            "link" : "",
+            "target" : "",
             "isTrial" : "1"
         }
     ],
     mpTvorsList : [
         {
             "title" : "tvor0",
-            "link" : "",
+            "target" : "",
             "isTrial" : "1"
         },
         {
             "title" : "tvor1",
-            "link" : "",
+            "target" : "",
             "isTrial" : "0"
         },
         {
             "title" : "tvor2",
-            "link" : "",
+            "target" : "",
             "isTrial" : "1"
         }
     ],
     mpStratList : [
         {
             "title" : "strat0",
-            "link" : "",
+            "target" : "",
             "isTrial" : "1"
         },
         {
             "title" : "strat1",
-            "link" : "",
+            "target" : "",
             "isTrial" : "0"
         },
         {
             "title" : "strat2",
-            "link" : "",
+            "target" : "",
             "isTrial" : "1"
         }
     ],
     mpMislsList : [
         {
             "title" : "misl0",
-            "link" : "",
+            "target" : "",
             "isTrial" : "1"
         },
         {
             "title" : "misl1",
-            "link" : "",
+            "target" : "",
             "isTrial" : "0"
         },
         {
             "title" : "misl2",
-            "link" : "",
+            "target" : "",
             "isTrial" : "1"
         }
     ]    

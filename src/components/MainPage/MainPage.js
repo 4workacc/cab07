@@ -14,6 +14,8 @@ import MP_Misl from './MP_Misl/MP_Misl';
 
 //tests
 import Test0 from '../readyPages/tests/test0/test0';
+// anims
+import Anim0 from '../readyPages/anims/Anim0/Anim0';
 // portal
 import MPortal from '../Portal/MPortal';
 import LoginPage from '../LoginPage/LoginPage';
@@ -50,6 +52,8 @@ const MainPage = () =>{
             case "AdminPanel" : qq = <AdminPanel />; break;
 
             case "TEST_test0" : qq = <Test0 />; break;
+
+            case "ANIM_anim0" : qq =<Anim0 />;break;
             default : qq = <MP_Menu />;
         }
         setPage( qq );
