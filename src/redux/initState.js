@@ -33,14 +33,14 @@ let initState = {
             "class" : []
         },
         {
-            "title" : "test1",
-            "target" : "",
-            "isTrial" : "0",
+            "title" : "11 клас. Выніковы тэст. Варыянт 1.",
+            "target" : "TEST_test1",
+            "isTrial" : "1",
             "class": []
         },
         {
-            "title" : "test2",
-            "target" : "",
+            "title" : "11 клас. Выніковы тэст. Варыянт 2.",
+            "target" : "TEST_test2",
             "isTrial" : "1",
             "class" :[]
         }

@@ -14,6 +14,8 @@ import MP_Misl from './MP_Misl/MP_Misl';
 
 //tests
 import Test0 from '../readyPages/tests/test0/test0';
+import Test1 from '../readyPages/tests/Test1/Test1';
+import Test2 from '../readyPages/tests/Test2/Test2';
 // anims
 import Anim0 from '../readyPages/anims/Anim0/Anim0';
 // portal
@@ -52,6 +54,8 @@ const MainPage = () =>{
             case "AdminPanel" : qq = <AdminPanel />; break;
 
             case "TEST_test0" : qq = <Test0 />; break;
+            case "TEST_test1" : qq = <Test1 />; break;
+            case "TEST_test2" : qq = <Test2 />; break;
 
             case "ANIM_anim0" : qq =<Anim0 />;break;
             default : qq = <MP_Menu />;
