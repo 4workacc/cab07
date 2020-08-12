@@ -25,26 +25,7 @@ let initState = {
         }
     ],
 
-    mpTestsList: [
-        {
-            "title" : "test0",
-            "target" : "TEST_test0",
-            "isTrial" : "1",
-            "class" : []
-        },
-        {
-            "title" : "11 клас. Выніковы тэст. Варыянт 1.",
-            "target" : "TEST_test1",
-            "isTrial" : "1",
-            "class": []
-        },
-        {
-            "title" : "11 клас. Выніковы тэст. Варыянт 2.",
-            "target" : "TEST_test2",
-            "isTrial" : "1",
-            "class" :[]
-        }
-    ],
+    mpTestsList: [],
     mpAnimsList : [
         {
             "title" : "Анимация фразеалагизмы",

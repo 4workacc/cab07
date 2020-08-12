@@ -18,7 +18,8 @@ let initRed = (state = initState, action) => {
                 ...state,
                 curShowLoginPanel : action.newState,
                 curUserId : action.userId,
-                curLoginButText : action.newLoginButText
+                curLoginButText : action.newLoginButText,
+                curMenuPage : "MainPage"
             }
         default : 
             return state

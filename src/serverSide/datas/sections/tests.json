@@ -1,0 +1,33 @@
+{
+    "tests": [
+        {
+            "testId" : 0,
+            "title" : "test0",
+            "target" : "TEST_test0",
+            "allowIdList" : [-1],
+            "class" : []
+        },
+        {
+            "testId" : 1,
+            "title" : "11 клас. Выніковы тэст. Варыянт 1.",
+            "target" : "TEST_test1",
+            "allowIdList" : [12311],
+            "class": []
+        },
+        {
+            "testId" : 2,
+            "title" : "11 клас. Выніковы тэст. Варыянт 2.",
+            "target" : "TEST_test2",
+            "allowIdList" : [],
+            "class" :[]
+        },
+        {
+            "testId" : 3,
+            "title" : "12 клас. Выніковы тэст. Варыянт 2.",
+            "target" : "TEST_test2",
+            "allowIdList" : [12311,1],
+            "class" :[]
+        }  
+    ]
+    
+}

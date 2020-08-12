@@ -21,7 +21,7 @@ const LoginPage = () =>{
               type : "SWITCH_LOGIN_PANEL",
               newState : 0,
               userId : data.userId,
-              newLoginButText : "Кабiнет",                          
+              newLoginButText : "Кабiнет"
           })
         }
         else {
