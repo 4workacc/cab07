@@ -11,7 +11,7 @@ const MP_Tests = () => {
     const curUserId = useSelector( state =>state.curUserId);
     
     useEffect ( ()=>{
-        fetch('http://cab07.hostronavt.ru/login.php/getTestsList.php')
+        fetch('https://cab07.000webhostapp.com/getTestsList.php')
         .then((response) => {
             return response.json();
         })
@@ -28,7 +28,7 @@ const MP_Tests = () => {
                                 ()=>{dispatch( AShowTest(el.target,'test'+el.testId))}:
                                 (
                                     el.allowIdList.indexOf(curUserId/1)>-1?
-                                    ()=>{dispatch( AShowTest(el.target, 'test'+el.testId))}:
+                                    ()=>{dispatch( AShowTest(el.target, 'test'+el.taskId))}:
                                     ()=>{}
                                 )                                
                             }>
