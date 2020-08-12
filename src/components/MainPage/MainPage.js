@@ -33,7 +33,8 @@ const MainPage = () =>{
     // const count = useSelector(state => state.counter.count);
     const curUserId = useSelector( state => state.curUserId );
     const curMenuPage = useSelector ( state => state.curMenuPage);
-    const curLoginButText = useSelector( state => state.curLoginButText)
+    const curLoginButText = useSelector( state => state.curLoginButText);
+    const curUserTask = useSelector( state => state.curUserTask);
     
     useEffect(() => {
         document.title = "Вугалок беларускай мовы"
@@ -123,7 +124,7 @@ const MainPage = () =>{
                 </ul>
             </div>
             { curPage }
-            { curUserId }  
+            { curUserTask }  
             <div 
                 className = "MP_LoginPageBut"
                 onClick = {()=>loginButHandler()}>{curLoginButText}</div>        

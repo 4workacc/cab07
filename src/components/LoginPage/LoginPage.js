@@ -11,7 +11,8 @@ const LoginPage = () =>{
     const dispatch = useDispatch();
 
     let LP_fetchToServer = () => {        
-      fetch('https://cab07.000webhostapp.com/login.php?login='+login+'&pass='+pass)
+      // fetch('https://cab07.000webhostapp.com/login.php?login='+login+'&pass='+pass)
+      fetch('http://cab07.hostronavt.ru/login.php?login='+login+'&pass='+pass)
       .then((response) => {
         return response.json();
       })

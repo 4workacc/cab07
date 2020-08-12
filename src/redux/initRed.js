@@ -11,7 +11,13 @@ let initRed = (state = initState, action) => {
         case "SHOW_PAGE" :        
             return {
                 ...state, 
-                curMenuPage : action.page
+                curMenuPage : action.page                
+            };
+        case "SHOW_TEST" :        
+            return {
+                ...state, 
+                curMenuPage : action.page,
+                curUserTask : action.curUserTask
             };
         case "SWITCH_LOGIN_PANEL" : 
             return {

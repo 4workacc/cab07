@@ -6,7 +6,7 @@ let initState = {
     curSubPage : "none",
     curShowLoginPanel : 0,    
     curLoginButText : "Уваход",
-
+    curUserTask : '',
     mpNaprList : [
         {
             "title" : "napr0",
