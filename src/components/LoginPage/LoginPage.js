@@ -20,7 +20,7 @@ const LoginPage = () =>{
             dispatch({
               type : "SWITCH_LOGIN_PANEL",
               newState : 0,
-              userId : data.userId,
+              userId : data.userId/1,
               newLoginButText : "Кабiнет"
           })
         }

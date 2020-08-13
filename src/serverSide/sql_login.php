@@ -13,7 +13,7 @@ $dbname = "cab07";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
-$sql = "SELECT ID FROM logins WHERE LOGIN LIKE 'admin' AND PASS LIKE 'admin'";
+$sql = "SELECT ID FROM logins WHERE LOGIN LIKE '".$_GET['login']."' AND PASS LIKE '".$_GET['pass']."'";
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
