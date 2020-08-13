@@ -2,9 +2,12 @@ import React , { useState, useEffect } from 'react';
 import './Test1.css';
 // 11 клас тэст варыянт 2
 
+import { useSelector } from 'react-redux';
+
 import Test1_arr from './Test1_arr';
 
 const Test1 = () => {
+    const testId = 1;
     const [ curQuest, SetCurQuest ] = useState(0);
     const [ mainScreen, SetMainScreen] = useState("Test1");
     const [rezScreen, SetRezScreen] = useState("Test1_none");
@@ -13,9 +16,28 @@ const Test1 = () => {
     const [a2, SetA2 ] = useState('');
     const [a3, SetA3 ] = useState('');
     const [a4, SetA4 ] = useState(''); 
+    const [startTime, setStartTime] = useState('')
+    
+    const curUserId = useSelector( state => state.curUserId );
 
     const [rightCount, AddRightAnswer ] = useState(0);
       
+    let getNow = () =>{
+        let now = new Date().toLocaleString();
+        now = now.split(',');
+        now[0] = now[0].split('.');
+        let xx = now[0][0];
+        now[0][0] = now[0][2];
+        now[0][2] = xx;
+        now[0] = now[0].join('.');
+        now = now.join(' ');
+        return now;
+    }
+
+    useEffect(()=>{       
+      setStartTime(getNow);
+    },[])
+
     return (
         <div className = "Test1">
             <div className = {mainScreen}>
@@ -86,6 +108,18 @@ const Test1 = () => {
                                 else {
                                     SetMainScreen("Test1_none");
                                     SetRezScreen("");
+                                    console.log(`http://82.209.229.159/sql_setTestResult.php?
+                                    user_id=`+curUserId+`&
+                                    test_id=`+testId+`&
+                                    start="`+startTime+`"&
+                                    end="`+getNow()+`"&
+                                    result=`+rightCount/20*100);
+                                    fetch(`http://82.209.229.159/sql_setTestResult.php?
+                                        user_id=`+curUserId+`&
+                                        test_id=`+testId+`&
+                                        start="`+startTime+`"&
+                                        end="`+getNow()+`"&
+                                        result=`+rightCount/20*100);                                                                       
                                 }
                                 if ( a0+''+a1+''+a2+''+a3+''+a4 === Test1_arr[curQuest][2] ) {
                                     AddRightAnswer( rightCount+1 );
@@ -97,7 +131,7 @@ const Test1 = () => {
             </div>
             <div className = {rezScreen}>
                 <p className = "Test1_Res_Text">
-                    {"Вы набралі "+rightCount+" з 20 балаў ("+Math.floor(rightCount/20*100)+"%)"}
+                    {"Вы набралі "+rightCount+" з 20 балаў ("+Math.floor(rightCount/20*100)+"%)" }
                 </p>
             </div>
         </div>
