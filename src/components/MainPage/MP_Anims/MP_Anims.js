@@ -2,29 +2,42 @@ import React, {useState, useEffect} from 'react';
 import './MP_Anims.css';
 
 import { useSelector, useDispatch } from 'react-redux';
-import AShowPage from '../../../redux/actions/AShowPage';
+import AShowTest from '../../../redux/actions/AShowTest';
 
 const MP_Anims = () => {
-    const AnimList = useSelector( state => state.mpAnimsList);
-    const userId = useSelector ( state => state.curUserId);
     const [ animList, setList] = useState();
+    const curUserId = useSelector( state =>state.curUserId);
     const dispatch = useDispatch();
     useEffect ( ()=>{
-        
-        let arr = [];        
-        AnimList.map( el =>{
-            arr.push(
-                <li 
-                className = { (el.isTrial === "0" && userId === -1)?"MP_Anim_li0":"MP_Anim_li1"}
-                    title = {el.isTrial==="0"?"Для карыстання неабходна аўтарызація!":""}
-                    onClick = {()=>{
-                        dispatch( AShowPage(el.target))
-                    }}>
-                        <a>{el.title}</a>
-                    </li>)
+        fetch('http://82.209.229.159/sql_getTestsList.php')
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {                           
+                let arr = [];  
+                data.tests.map( el =>{
+                    if (el.type === "ANIM") {
+                        arr.push(
+                            <li 
+                                id = { 'anim'+el.testId}
+                                className = {(el.allowIdList.split(',').indexOf(curUserId+"")>-1||curUserId/1===12311)?"MP_Anim_li":"MP_Anim_li0"}
+                                title = {(el.allowIdList.split(',').indexOf(curUserId+"")>-1||curUserId/1===12311)?"":"Для карыстання неабходна аўтарызація!"}
+                                onClick = {
+                                    el.isTrial?
+                                        ()=>{dispatch( AShowTest(el.target,'anim'+el.testId))}:
+                                        (
+                                            (el.allowIdList.split(',').indexOf(curUserId+"")>-1||curUserId===12311)?
+                                            ()=>{dispatch( AShowTest(el.target, 'anim'+el.taskId))}:
+                                            ()=>{}
+                                        )                                
+                                    }>
+                                <a>{el.title}</a>
+                            </li>)
+                    }                   
+                });
+                setList(arr);                                                   
         });
-        setList(arr);
-    },[AnimList]);
+    },[]); 
     return (
         <div className = "MP_Anim">
             <ol className = "MP_Anim_list">

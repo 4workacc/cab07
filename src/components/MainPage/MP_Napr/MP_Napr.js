@@ -1,24 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import './MP_Napr.css';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import AShowTest from '../../../redux/actions/AShowTest';
 
-const MP_Napr = () => {
-    const NaprList = useSelector( state => state.mpNaprList);
-    const userId = useSelector ( state => state.curUserId);
+const MP_Napr = () => {    
     const [ naprList, setList] = useState();
+    const curUserId = useSelector( state =>state.curUserId);
+    const dispatch = useDispatch();
     useEffect ( ()=>{
-        let arr = [];        
-        NaprList.map( el =>{
-            arr.push(
-                <li 
-                    className = { (el.isTrial === "0" && userId === -1)?"MP_Napr_li0":"MP_Napr_li1"}    
-                    title = {el.isTrial==="0"?"Для карыстання неабходна аўтарызація!":""}>
-                        <a>{el.title}</a>
-                    </li>)
+        fetch('http://82.209.229.159/sql_getTestsList.php')
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {                           
+                let arr = [];  
+                data.tests.map( el =>{
+                    if (el.type === "NAPR") {
+                        arr.push(
+                            <li 
+                                id = { 'napr'+el.testId}
+                                className = {(el.allowIdList.split(',').indexOf(curUserId+"")>-1||curUserId/1===12311)?"MP_Napr_li":"MP_Napr_li0"}
+                                title = {(el.allowIdList.split(',').indexOf(curUserId+"")>-1||curUserId/1===12311)?"":"Для карыстання неабходна аўтарызація!"}
+                                onClick = {
+                                    el.isTrial?
+                                        ()=>{dispatch( AShowTest(el.target,'napr'+el.testId))}:
+                                        (
+                                            (el.allowIdList.split(',').indexOf(curUserId+"")>-1||curUserId===12311)?
+                                            ()=>{dispatch( AShowTest(el.target, 'napr'+el.taskId))}:
+                                            ()=>{}
+                                        )                                
+                                    }>
+                                <a>{el.title}</a>
+                            </li>)
+                    }                   
+                });
+                setList(arr);                                                   
         });
-        setList(arr);
-    },[NaprList]);
+    },[]);   
     return (
         <div className = "MP_Napr">
             <ol className = "MP_Napr_list">

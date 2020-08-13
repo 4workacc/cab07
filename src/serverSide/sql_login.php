@@ -5,15 +5,15 @@
     header('Access-Control-Max-Age: 1000');
     header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token , Authorization'); 
     header('Content-Type: application/json');
-$servername = "localhost";
-$username = "id14542805_reat";
+$servername = "127.0.0.1";
+$username = "root";
 $password = "POiuytrewQ!@3";
-$dbname = "id14542805_datasd";
+$dbname = "cab07";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
-$sql = "SELECT ID FROM LoginS WHERE LOGIN LIKE 'admin' AND PASS LIKE 'admin'";
+$sql = "SELECT ID FROM logins WHERE LOGIN LIKE 'admin' AND PASS LIKE 'admin'";
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
