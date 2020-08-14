@@ -10,8 +10,8 @@ const LoginPage = () =>{
     const curShowLoginPanel = useSelector( state => state.curShowLoginPanel );
     const dispatch = useDispatch();
 
-    let LP_fetchToServer = () => {        
-      fetch('https://cab07.000webhostapp.com/login.php?login='+login+'&pass='+pass)
+    let LP_fetchToServer = () => {       
+      fetch('http://82.209.229.159/sql_login.php?login='+login+'&pass='+pass)     
       .then((response) => {
         return response.json();
       })
@@ -20,8 +20,8 @@ const LoginPage = () =>{
             dispatch({
               type : "SWITCH_LOGIN_PANEL",
               newState : 0,
-              userId : data.userId,
-              newLoginButText : "Кабiнет",                          
+              userId : data.userId/1,
+              newLoginButText : "Кабiнет"
           })
         }
         else {
@@ -35,7 +35,13 @@ const LoginPage = () =>{
        }      
       });
      };
-
+    let closeButHandler = () => {
+      
+      dispatch({
+        type : "SWITCH_LOGIN_PANEL",
+        newState : 0           
+    });
+    }
     return (
         <div className = {"LoginPage LPop"+curShowLoginPanel}>               
                      <input 
@@ -56,7 +62,10 @@ const LoginPage = () =>{
                         type="submit" 
                         className="fadeIn fourth LPsubmit" 
                         value="Log In"                        
-                        onClick = {() => LP_fetchToServer()}/>               
+                        onClick = {() => LP_fetchToServer()}/>        
+                    <button 
+                        className = "LoginPage_close"
+                        onClick = {() => closeButHandler() }>X</button>       
         </div>
     )
 }

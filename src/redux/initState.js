@@ -6,7 +6,7 @@ let initState = {
     curSubPage : "none",
     curShowLoginPanel : 0,    
     curLoginButText : "Уваход",
-
+    curUserTask : '',
     mpNaprList : [
         {
             "title" : "napr0",
@@ -25,43 +25,7 @@ let initState = {
         }
     ],
 
-    mpTestsList: [
-        {
-            "title" : "test0",
-            "target" : "TEST_test0",
-            "isTrial" : "1",
-            "class" : []
-        },
-        {
-            "title" : "11 клас. Выніковы тэст. Варыянт 1.",
-            "target" : "TEST_test1",
-            "isTrial" : "1",
-            "class": []
-        },
-        {
-            "title" : "11 клас. Выніковы тэст. Варыянт 2.",
-            "target" : "TEST_test2",
-            "isTrial" : "1",
-            "class" :[]
-        }
-    ],
-    mpAnimsList : [
-        {
-            "title" : "Анимация фразеалагизмы",
-            "target" : "ANIM_anim0",
-            "isTrial" : "1"
-        },
-        {
-            "title" : "anim1",
-            "target" : "",
-            "isTrial" : "0"
-        },
-        {
-            "title" : "anim2",
-            "target" : "",
-            "isTrial" : "1"
-        }
-    ],
+    mpTestsList: [],   
     mpTvorsList : [
         {
             "title" : "tvor0",

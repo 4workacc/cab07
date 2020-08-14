@@ -12,27 +12,73 @@ import './Cabinet.css';
 import { useSelector } from 'react-redux';
 
 const Cabinet = () => {
-    const [curFIO, setFIO] = useState('');
-    const [curClass, setClass] = useState('');
-    const [curTasks, setTasks] = useState([]);
-
-    const curUserId = useSelector( state => state.curUserId );
-
-    useEffect(() =>{           
-        fetch('https://cab07.000webhostapp.com/readUserData.php?id='+curUserId)
-            .then((response) => {
-              return response.json();
+    const curUserId = useSelector(state => state.curUserId );
+    const [tasks, setTasks ] = useState([]);
+    const [tests, setTests] = useState([]);
+    
+    useEffect(() => {
+        let ss = 'http://82.209.229.159/sql_getTasks.php?user_id='+curUserId;
+        console.log ( ss );
+        fetch(ss)     
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            let ff = [];
+            data.tasks.map( el =>{
+                ff.push({
+                    "test_id" : el.task_test_id,
+                    "start" : el.task_start,
+                    "end" : el.task_end
+                });               
+            })                     
+            setTasks (ff);        
+            console.log(ff);   
+        });
+        fetch('http://82.209.229.159/sql_Tests.php')     
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            let ww = [];
+            data.tests.map( el =>{
+                ww.push({ 
+                    "id" : el.test_id/1,
+                    "title" : el.test_title,
+                    "target" : el.test_target,
+                    "allowedList" : el.allowedList,
+                    "type" : el.type
+                })
             })
-            .then((data) => {
-                setFIO(data.FIO);     
-                setClass(data.CLASS);           
-                setTasks(data.TASKS);               
-            });                           
-    },[]);
+            setTests(ww);                      
+        });
+    },[])
+    let genTaskList = () => {
+        let arr = [];
+        tasks.map(el=>{    
+            let qq = '';
+            for ( let i =0; i<tests.length; i++ ) {
+                if (tests[i].id === el.test_id/1 ) {                    
+                    qq = tests[i].title;
+                    break;
+                }
+            }        
+            arr.push (
+                <div className = "Cabinet_task">                    
+                    <p>{ qq }</p>
+                    <p>{"пачатак "+el.start}</p>
+                    <p>{"канец "+el.end}</p> 
+                    <button className = "Cabinet_task_but">X</button>  
+                </div>)
+        })
+       return arr;
+    };
     return (
-        <div className = "Cabinet">            
-            {curFIO}
-            {curClass}
+        <div className = "Cabinet">      
+           <p className = "Cabinet_header"> Заданні для выканання </p>
+           <div className = "Cabinet_task_bar">
+               { genTaskList() }
+           </div>        
             
 >>>>>>> master
         </div>
@@ -44,6 +90,7 @@ export default Cabinet;
 =======
 export default Cabinet;
 
+<<<<<<< HEAD
 
 // "TASKS"  : [
     // {
@@ -59,4 +106,6 @@ export default Cabinet;
     //         }
     //     ]
     // }
+>>>>>>> master
+=======
 >>>>>>> master

@@ -1,24 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import './MP_Napr.css';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import AShowTest from '../../../redux/actions/AShowTest';
 
-const MP_Napr = () => {
-    const NaprList = useSelector( state => state.mpNaprList);
-    const userId = useSelector ( state => state.curUserId);
+const MP_Napr = () => {    
     const [ naprList, setList] = useState();
-    useEffect ( ()=>{
-        let arr = [];        
-        NaprList.map( el =>{
-            arr.push(
-                <li 
-                    className = { (el.isTrial === "0" && userId === -1)?"MP_Napr_li0":"MP_Napr_li1"}    
-                    title = {el.isTrial==="0"?"Для карыстання неабходна аўтарызація!":""}>
-                        <a>{el.title}</a>
-                    </li>)
-        });
-        setList(arr);
-    },[NaprList]);
+    const curUserId = useSelector( state =>state.curUserId);
+    const dispatch = useDispatch();
+   
+    useEffect ( ()=>{       
+        fetch('http://82.209.229.159/sql_getTestsList.php')
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {                           
+                let arr = [];  
+                data.tests.map( el =>{                                    
+                    let qq = el.allowIdList;
+                    qq = qq.indexOf(',')===-1?[qq/1]:qq.split(',');
+                    if (qq.length > 1 ){ qq = qq.map(el => el/1)};                             
+                    qq = (qq.indexOf(curUserId)>-1||curUserId === 12311);  
+                    console.log( curUserId );                                                                
+                    if (el.type === "NAPR") {
+                        arr.push(
+                            <li 
+                                id = { 'test'+el.testId }
+                                className = { qq ? "MP_Napr_li" : "MP_Napr_li0"}
+                                title = { qq ? "" : "Для карыстання неабходна аўтарызація!"}
+                                onClick = { qq ? ()=>{dispatch( AShowTest(el.target, 'napr'+el.taskId))} : ()=>{}}>
+                                <a>{el.title}</a>
+                            </li>)
+                    }                   
+                });
+                setList(arr);                                                   
+            });
+        },[]); 
+
     return (
         <div className = "MP_Napr">
             <ol className = "MP_Napr_list">
