@@ -7,3 +7,17 @@
     margin-left: -500px;
     border: 1px solid black;
 }
+
+.AdminPanel_results{
+    position: absolute;    
+    width: 900px;    
+    left: 50px;
+    top: 200px;        
+}
+.AdminPanel_head{
+    position: absolute;
+    width: 400px;
+    top: 100px;
+    left: 50%;
+    margin-left: -200px;
+}   

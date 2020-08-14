@@ -13,7 +13,7 @@ $dbname = "cab07";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
-$sql = "SELECT * FROM results";
+$sql = "SELECT * FROM results ORDER BY END DESC";
 $result = $conn->query($sql);
 
 $arr = [];
@@ -34,6 +34,6 @@ if ($result->num_rows > 0) {
 }
 echo ( json_encode(array(
     "results" =>$arr
-)));
+),JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE));
 $conn->close();
 ?>

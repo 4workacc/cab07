@@ -13,7 +13,7 @@ $dbname = "cab07";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
-$sql = "SELECT * FROM users";
+$sql = "SELECT * FROM tests";
 $result = $conn->query($sql);
 
 $arr = [];
@@ -22,15 +22,18 @@ if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
         array_push($arr, [
-            "user_fio" => $row["FIO"],
-            "user_id" => $row["ID"]
+            "test_id" => $row["ID"],
+            "test_title" => $row["TITLE"],
+            "test_target" => $row["TARGET"],
+            "test_allowedList" => $row["ALLOWED_LIST"],
+            "type" => $row["TYPE"]
         ]);
     }
 } else {
     echo "0 results";
 }
 echo ( json_encode(array(
-    "users" =>$arr
+    "tests" =>$arr
 ),JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE));
 $conn->close();
 ?>
