@@ -9,6 +9,8 @@ const AdminPanel = () => {
     const [curList, setCurList] = useState([]);
     const [fios, setFios ] = useState([]);
     const [curFio, setCurFio] = useState('');
+
+    const [curTab, changeTab ] = useState(0);
     useEffect(()=>{   
         fetch('http://82.209.229.159/sql_Users.php')     
         .then((response) => {
@@ -72,7 +74,7 @@ const AdminPanel = () => {
             let usr  = users.get(""+el.user_id);
             if ( curFio === '' || curFio === usr ) {
                 arr.push(
-                    <tr>
+                    <tr className = "AP_tab_tr">
                         <td> { usr } </td>
                         <td> { titl }</td>
                         <td> {el.start} </td>
@@ -92,7 +94,19 @@ const AdminPanel = () => {
     }
     return (
         <div className = "AdminPanel">
-            AdminPanel            
+              
+            <div className = "AdminPanel_nav">
+                <button 
+                    className = "AdminPanel_tab_0"
+                    onClick = {()=>changeTab(0)}
+                    value = "Вынікі работ">Вынікі работ</button>         
+                <button
+                    className = "AdminPanel_tab_1"
+                    onClick = {()=>changeTab(1)}
+                    value = "Задаць">Задаць</button>
+            </div>
+            
+            <div className = {curTab === 0 ?"AdminPanel_rez":"AP_none"}>
             <div className = "AdminPanel_head">           
                 <select                 
                     placeholder = "Фамілія вучня"
@@ -108,17 +122,22 @@ const AdminPanel = () => {
                     </button>
             </div>
             <table className = "AdminPanel_results">                
-                <tr>
-                    <td>User</td>
-                    <td>title</td>
-                    <td>start</td>
-                    <td>end</td>
-                    <td>result</td>
-                </tr>
+                <thead className = "AP_tab_head">                    
+                        <td>User</td>
+                        <td>title</td>
+                        <td>start</td>
+                        <td>end</td>
+                        <td>result</td>
+                    
+                </thead>
                 <tbody>
                     { curList }
                 </tbody>                             
-                </table>                       
+                </table>       
+            </div>
+            <div className = {curTab === 1 ?"AdminPanel_tasks":"AP_none"}>
+                tasks
+            </div>
            
         </div>
     )

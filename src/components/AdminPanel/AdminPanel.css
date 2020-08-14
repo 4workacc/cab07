@@ -12,12 +12,45 @@
     position: absolute;    
     width: 900px;    
     left: 50px;
-    top: 200px;        
+    top: 50px;     
+    left: 50%;
+    margin-left: -450px;   
 }
-.AdminPanel_head{
+.AP_tab_tr:nth-child(2n) {
+    background:#f6f6f6;
+}
+.AP_tab_head{
+    background-color: #527a6e;
+    color: #FFF;
+}
+.AP_none {
+    display: none;
+}
+.AdminPanel_rez {
+    position: absolute;    
+    width: 900px;    
+    left: 50px;
+    top: 100px; 
+}
+.AdminPanel_tasks {
+    position: absolute;    
+    width: 900px;    
+    left: 50px;
+    top: 100px; 
+}
+.AdminPanel_nav{
     position: absolute;
     width: 400px;
-    top: 100px;
+    top: 0;
     left: 50%;
     margin-left: -200px;
-}   
+
+    display: flex;
+    justify-content: space-around;
+}
+.AdminPanel_tab_0, .AdminPanel_tab_1{
+    width: 150px;
+    height: 40px;
+    font: 20px "Times New Roman";
+    border-radius: 5px;
+}
