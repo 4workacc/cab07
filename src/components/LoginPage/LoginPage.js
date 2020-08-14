@@ -35,7 +35,13 @@ const LoginPage = () =>{
        }      
       });
      };
-
+    let closeButHandler = () => {
+      
+      dispatch({
+        type : "SWITCH_LOGIN_PANEL",
+        newState : 0           
+    });
+    }
     return (
         <div className = {"LoginPage LPop"+curShowLoginPanel}>               
                      <input 
@@ -56,7 +62,10 @@ const LoginPage = () =>{
                         type="submit" 
                         className="fadeIn fourth LPsubmit" 
                         value="Log In"                        
-                        onClick = {() => LP_fetchToServer()}/>               
+                        onClick = {() => LP_fetchToServer()}/>        
+                    <button 
+                        className = "LoginPage_close"
+                        onClick = {() => closeButHandler() }>X</button>       
         </div>
     )
 }

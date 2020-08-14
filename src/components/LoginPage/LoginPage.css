@@ -27,3 +27,8 @@ input[type=submit]{
   opacity: 0;
   display: none;
 }
+.LoginPage_close{
+  position: absolute;
+  top: -10%;
+  left: 110%;
+}
