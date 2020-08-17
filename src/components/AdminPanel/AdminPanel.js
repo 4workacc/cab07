@@ -11,6 +11,10 @@ const AdminPanel = () => {
     const [curFio, setCurFio] = useState('');
 
     const [curTab, changeTab ] = useState(0);
+
+    const [tasksUserFio, setTasksUserFio ] = useState('');
+    const [tasksTestTile, setTaskTestTitle ] = useState('');
+
     useEffect(()=>{   
         fetch('http://82.209.229.159/sql_Users.php')     
         .then((response) => {
@@ -92,6 +96,12 @@ const AdminPanel = () => {
     let refreshBut = () => {
         genResultTable();
     }
+    let selectTasksFioChange = ( event ) => {        
+        setTasksUserFio( event.target.value );
+    }
+    let selectTasksTestChange = (event ) => {
+        setTaskTestTitle ( event.target.value );
+    }
     return (
         <div className = "AdminPanel">
               
@@ -137,6 +147,35 @@ const AdminPanel = () => {
             </div>
             <div className = {curTab === 1 ?"AdminPanel_tasks":"AP_none"}>
                 tasks
+                <select                 
+                    placeholder = "Фамілія вучня"
+                    onChange = { selectTasksFioChange }
+                    >
+                    {fios.map(el =>{
+                        return <option>{el}</option>
+                    })}                                                  
+                </select>
+                <select                 
+                    placeholder = "Назва тэста"
+                    onChange = { selectTasksTestChange }
+                    >
+                    {tests.map(el =>{
+                        return <option>{el.title}</option>
+                    })}                                                  
+                </select>
+                <input 
+                    type = "datetime-local"
+                    ></input>
+
+                <button
+                    onClick = {() => {
+                        let qq = `http://82.209.229.159/sql_addTasks.php?
+                        user_fio=`+tasksUserFio+`&
+                        test_title=`+tasksTestTile+`&
+                        start="`+"2020-05-01 11:11:11"+`"&
+                        end="2020-05-01 11:11:11"`;
+                        console.log ( qq )
+                        fetch(qq)}}>ADD</button>
             </div>
            
         </div>
@@ -144,3 +183,4 @@ const AdminPanel = () => {
 }
 
 export default AdminPanel;
+// http://82.209.229.159/sql_setTestResult.php?user_id=2&test_id=2&start=2020-05-08_11:11:11&end=2020-05-08_11
