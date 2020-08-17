@@ -36,6 +36,7 @@ const MainPage = () =>{
     const curLoginButText = useSelector( state => state.curLoginButText);
     const curUserTask = useSelector( state => state.curUserTask);
     
+    const curShowLoginPanel = useSelector( state => state.curShowLoginPanel);
     useEffect(() => {
         document.title = "Вугалок беларускай мовы"
      }, []);
@@ -63,27 +64,27 @@ const MainPage = () =>{
         }
         setPage( qq );
     }, [curMenuPage]);
-    let loginButHandler = () =>{
-        if (curUserId === -1) {
-            dispatch({
-                type : "SWITCH_LOGIN_PANEL",
-                newState : 1                    
-            })
-        }
-        else {
-            if ( curUserId === 12311 ) {
+    let loginButHandler = () =>{       
+        switch ( curUserId ) {
+            case -1 :
+                dispatch({
+                    type :"LOGIN_PANEL_SWITCHER",
+                    newCurShowLoginPanel : curShowLoginPanel === 0 ? 1 : 0
+                });
+                break;
+            case 12311 : 
                 dispatch({
                     type : "SHOW_PAGE",
                     page : "AdminPanel"
-                })
-            }
-            else {
+                });
+                break;     
+            default :
                 dispatch({
                     type : "SHOW_PAGE",
                     page : "Cabinet"
-                })
-            }
-        }
+                });   
+                break;            
+        }            
     }
     return(
         <div className = "MainPage">

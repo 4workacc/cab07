@@ -18,29 +18,25 @@ const LoginPage = () =>{
       .then((data) => {
         if ( data.userId >0 ) {
             dispatch({
-              type : "SWITCH_LOGIN_PANEL",
-              newState : 0,
-              userId : data.userId/1,
-              newLoginButText : "Кабiнет"
+              type : "SYSTEM_LOG_IN",              
+              curUserId : data.userId/1              
           })
         }
         else {
-          alert ("Памылка");
+          alert ("Не правільны логін або пароль!");
           dispatch({
-            type : "SWITCH_LOGIN_PANEL",
-            newState : 0,
-            userId : -1,
-            newLoginButText : "Уваход"    
-        });
+            type :"LOGIN_PANEL_SWITCHER",
+            newCurShowLoginPanel : 0
+          });   
        }      
       });
      };
-    let closeButHandler = () => {
-      
+    let closeButHandler = () => {      
       dispatch({
-        type : "SWITCH_LOGIN_PANEL",
-        newState : 0           
-    });
+        type :"LOGIN_PANEL_SWITCHER",
+        newCurShowLoginPanel : 0
+      });       
+   
     }
     return (
         <div className = {"LoginPage LPop"+curShowLoginPanel}>               
