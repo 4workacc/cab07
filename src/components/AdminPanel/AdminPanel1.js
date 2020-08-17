@@ -8,7 +8,6 @@ const AdminPanel = () => {
     const [ users, setUsers ] = useState([]);
     const [ tests, setTests ] = useState([]);
     const [ results, setResults ] = useState([]);
-
     const [ curList, setCurList ] = useState([]); 
     const [ curFio, setCurFio ] = useState('');
     // 
@@ -136,15 +135,22 @@ const AdminPanel = () => {
                             <td>title</td>
                             <td>start</td>
                             <td>end</td>
-                            <td>result</td>
-                        
+                            <td>result</td>                        
                     </thead>
                     <tbody>
                         { curList }
                     </tbody>                             
                 </table>              
             </div>
-            <div className = { curTab === 1? "AdminPanel_tab" : "AdminPanel_none"}>bb</div>
+            <div className = { curTab === 1? "AdminPanel_tab" : "AdminPanel_none"}>
+                <select>
+                    { fios.map( el => {return <option>{el}</option> }) }
+                    
+                </select>
+                <select>
+                    { tests.map( el => {return <option>{el.title}</option> }) }
+                </select>
+            </div>
         </div>
     )
 }
