@@ -24,7 +24,7 @@ import LoginPage from '../LoginPage/LoginPage';
 
 import { useSelector } from 'react-redux';
 import Cabinet from '../Cabinet/Cabinet';
-import AdminPanel from '../AdminPanel/AdminPanel';
+import AdminPanel from '../AdminPanel/AdminPanel1';
 
 const MainPage = () =>{
     const dispatch = useDispatch();
