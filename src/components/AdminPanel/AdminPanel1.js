@@ -98,7 +98,7 @@ const AdminPanel = () => {
     };
     useEffect(()=>{
         genResultTable()
-    },[users,tests,results]);
+    });
     let AP_tab0_fio_change = ( event ) => {
         setCurFio( event.target.value ); 
     }
@@ -144,11 +144,10 @@ const AdminPanel = () => {
             </div>
             <div className = { curTab === 1? "AdminPanel_tab" : "AdminPanel_none"}>
                 <select>
-                    { fios.map( el => {return <option>{el}</option> }) }
-                    
+                    { fios.map( el => {return <option>{el}</option> }) }                    
                 </select>
                 <select>
-                    { tests.map( el => {return <option>{el.title}</option> }) }
+                    {/* { tests.map( el => {return <option>{el.title}</option> }) } */}
                 </select>
             </div>
         </div>
