@@ -5,15 +5,29 @@ const AP_tasks = ({ fios, tests }) => {
     const [tasksUserFio, setTasksUserFio ] = useState('');
     const [tasksTestTile, setTaskTestTitle ] = useState('');
 
-    const [ startTime, setStartTime ] = useState('');
-    const [ endTime, setEndTime ] = useState('');
+    let getNow = () =>{
+        let now = new Date().toLocaleString();
+        
+        now = now.split(',');
+        now[0] = now[0].split('.');
+        let xx = now[0][0];
+        now[0][0] = now[0][2];
+        now[0][2] = xx;        
+        now[0] = now[0].join('-');
+        now[1] = (now[1].split(':')[0]+":"+now[1].split(':')[1]).trim();
+        now = now.join('T');       
+        return now;
+    };
+
+    const [ startTime, setStartTime ] = useState(getNow());
+    const [ endTime, setEndTime ] = useState(getNow());
 
     let selectTasksFioChange = ( event ) => {        
         setTasksUserFio( event.target.value );
-    }
+    };
     let selectTasksTestChange = (event ) => {
         setTaskTestTitle ( event.target.value );
-    }
+    };
     
     return (
         <div className = "AdminPanel_tasks">
@@ -32,10 +46,12 @@ const AP_tasks = ({ fios, tests }) => {
                 <input 
                     className = "AP_tasks_startTime"
                     type = "datetime-local"
+                    value = { startTime }
                     onChange = { (event) => setStartTime(event.target.value)}
                     ></input>
                 <input 
                     className = "AP_tasks_endTime"
+                    value = { endTime }
                     onChange = { (event) => setEndTime(event.target.value)}
                     type = "datetime-local"
                     ></input>
@@ -53,7 +69,7 @@ const AP_tasks = ({ fios, tests }) => {
                             return response.json();
                         })
                         .then((data) =>{
-                            alert( data.message )
+                            alert( data.message );
                         })
                         }}>ADD</button>
             </div>                             

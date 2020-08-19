@@ -40,7 +40,7 @@
       <option name="presentableId" value="Default" />
       <updated>1597297767200</updated>
       <workItem from="1597297769864" duration="5189000" />
-      <workItem from="1597304089413" duration="16354000" />
+      <workItem from="1597304089413" duration="24084000" />
     </task>
     <servers />
   </component>
@@ -52,6 +52,10 @@
       <screen x="0" y="0" width="1280" height="724" />
     </state>
     <state x="54" y="208" key="#SQL_Dialects/0.0.1280.724@0.0.1280.724" timestamp="1597312768299" />
+    <state x="300" y="159" key="run.anything.popup" timestamp="1597658386396">
+      <screen x="0" y="0" width="1280" height="724" />
+    </state>
+    <state x="300" y="159" key="run.anything.popup/0.0.1280.724@0.0.1280.724" timestamp="1597658386396" />
     <state x="303" y="45" width="672" height="678" key="search.everywhere.popup" timestamp="1597312458249">
       <screen x="0" y="0" width="1280" height="724" />
     </state>
