@@ -280,7 +280,7 @@ class Test0 extends React.Component {
         }))
     }
     checkRight( i ) {
-        if ( i == 0) {
+        if ( i === 0) {
             let ww = "";
             if ( this.state.ch0 ) {ww += "1" };
             if ( this.state.ch1 ) {ww += "2" };
@@ -288,7 +288,7 @@ class Test0 extends React.Component {
             if ( this.state.ch3 ) {ww += "4" };
             if ( this.state.ch4 ) {ww += "5" };
             // alert ( "-"+ww +"_"+ this.state.questBase[this.state.curIndex][3] + "-")
-            if ( ww == this.state.questBase[this.state.curIndex][3]) {
+            if ( ww === this.state.questBase[this.state.curIndex][3]) {
                 this.setState( (state) => ({
                     rightCount: state.rightCount + 1
                 }))
@@ -296,7 +296,7 @@ class Test0 extends React.Component {
         }
         else {
             // alert ( this.state.bAns +" "+ this.state.questBase[this.state.curIndex][3])
-            if ( this.state.bAns == this.state.questBase[this.state.curIndex][3] ) {
+            if ( this.state.bAns === this.state.questBase[this.state.curIndex][3] ) {
                 this.setState( (state) => ({
                     rightCount: state.rightCount + 1
                 }))
@@ -311,7 +311,7 @@ class Test0 extends React.Component {
                 <div className = "CardType0">
                     <p className = "CardType0_header">{this.state.questBase[this.state.curIndex][1]}</p>
                     <ul className = "checkboxes">
-                        {this.state.questBase[this.state.curIndex][2][0] != "" ? 
+                        {this.state.questBase[this.state.curIndex][2][0] !== "" ? 
                             <li className = "checkbox-group">
                                 <input 
                                     type="checkbox" 
@@ -327,7 +327,7 @@ class Test0 extends React.Component {
                                 <label for="checkbox-1" class="label">
                                     {this.state.questBase[this.state.curIndex][2][0]}
                                 </label></li> :""}
-                        {this.state.questBase[this.state.curIndex][2][1] != "" ?
+                        {this.state.questBase[this.state.curIndex][2][1] !== "" ?
                             <li className = "checkbox-group">
                                 <input 
                                     type="checkbox" 
@@ -343,7 +343,7 @@ class Test0 extends React.Component {
                                 <label for="checkbox-2" class="label">
                                     {this.state.questBase[this.state.curIndex][2][1]}
                                 </label></li>:""}
-                        {this.state.questBase[this.state.curIndex][2][2] != "" ? 
+                        {this.state.questBase[this.state.curIndex][2][2] !== "" ? 
                             <li className = "checkbox-group">
                                 <input 
                                     type="checkbox" 
@@ -359,7 +359,7 @@ class Test0 extends React.Component {
                                 <label for="checkbox-3" class="label">
                                     {this.state.questBase[this.state.curIndex][2][2]}
                                 </label></li>:""}
-                        {this.state.questBase[this.state.curIndex][2][3] != "" ? 
+                        {this.state.questBase[this.state.curIndex][2][3] !== "" ? 
                             <li className = "checkbox-group">
                                 <input 
                                     type="checkbox" 
@@ -375,7 +375,7 @@ class Test0 extends React.Component {
                                 <label for="checkbox-4" class="label">
                                     {this.state.questBase[this.state.curIndex][2][3]}
                                 </label></li>:""}
-                        {this.state.questBase[this.state.curIndex][2][4] != "" ?
+                        {this.state.questBase[this.state.curIndex][2][4] !== "" ?
                             <li className = "checkbox-group">
                                 <input 
                                     type="checkbox" 

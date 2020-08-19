@@ -1,19 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './AdminPanel.css';
+import AP_results from './AP_results/AP_results';
+import AP_tasks from './AP_tasks/AP_tasks';
 
 const AdminPanel = () => {
     const [users, setUsers ] = useState([]);
-    const [tests, setTests] = useState([]);
-    const [results , setResults] = useState([]); 
-
-    const [curList, setCurList] = useState([]);
+    const [tests, setTests] = useState([]);    
     const [fios, setFios ] = useState([]);
-    const [curFio, setCurFio] = useState('');
 
     const [curTab, changeTab ] = useState(0);
-
-    const [tasksUserFio, setTasksUserFio ] = useState('');
-    const [tasksTestTile, setTaskTestTitle ] = useState('');
 
     useEffect(()=>{   
         fetch('http://82.209.229.159/sql_Users.php')     
@@ -46,62 +41,18 @@ const AdminPanel = () => {
                 })
             })
             setTests(ww);                      
-        });
-        fetch('http://82.209.229.159/sql_getResults.php')     
-        .then((response) => {
-            return response.json();
-        })
-        .then((data) => {         
-            let qq = [];  
-            data.results.map ( el => {                 
-                qq.push(
-                    {
-                        "user_id" : el.user_id/1,
-                        "test_id" : el.test_id/1,
-                        "start" : el.start,
-                        "end" : el.end,
-                        "result" : el.result/1    
-                    }                   
-                )});                
-                setResults(qq); 
-            });                               
-    },[]);
-
-    useEffect(()=>{
-        genResultTable();
-    },[users,tests,results])
-    let genResultTable = () => {
-        let arr = [];
-        results.forEach( el => {    
-                    
-            let titl = tests[el.test_id/1]["title"];
-            let usr  = users.get(""+el.user_id);
-            if ( curFio === '' || curFio === usr ) {
-                arr.push(
-                    <tr className = "AP_tab_tr">
-                        <td> { usr } </td>
-                        <td> { titl }</td>
-                        <td> {el.start} </td>
-                        <td> {el.end.split(' ')[1]}   </td>
-                        <td> {el.result }</td> 
-                    </tr>
-                )
-            }           
-        })
-        setCurList(arr);
-    }
-    let selectChange = (event ) =>{
-        setCurFio( event.target.value );        
-    } 
-    let refreshBut = () => {
-        genResultTable();
-    }
-    let selectTasksFioChange = ( event ) => {        
-        setTasksUserFio( event.target.value );
-    }
-    let selectTasksTestChange = (event ) => {
-        setTaskTestTitle ( event.target.value );
-    }
+        })                                     
+    },[]);  
+    
+    let tabSwitcher = () => {
+        let x =  <AP_results fios = {fios} tests = { tests } users = { users } />;;
+        switch ( curTab ) {
+            case 0 : x = <AP_results fios = {fios} tests = { tests } users = { users } />; break;
+            case 1 : x = <AP_tasks fios = {fios} tests = {tests} />; break;
+            default : x =  <AP_results fios = {fios} tests = { tests } users = { users } />;
+        }
+        return x;
+    };
     return (
         <div className = "AdminPanel">
               
@@ -114,72 +65,8 @@ const AdminPanel = () => {
                     className = "AdminPanel_tab_1"
                     onClick = {()=>changeTab(1)}
                     value = "Задаць">Задаць</button>
-            </div>
-            
-            <div className = {curTab === 0 ?"AdminPanel_rez":"AP_none"}>
-            <div className = "AdminPanel_head">           
-                <select                 
-                    placeholder = "Фамілія вучня"
-                    onChange = { selectChange }
-                    >
-                    {fios.map(el =>{
-                        return <option>{el}</option>
-                    })}                                                  
-                </select>
-                <button                
-                    onClick = { () => refreshBut()}>
-                        Аднавіць табліцу
-                    </button>
-            </div>
-            <table className = "AdminPanel_results">                
-                <thead className = "AP_tab_head">                    
-                        <td>User</td>
-                        <td>title</td>
-                        <td>start</td>
-                        <td>end</td>
-                        <td>result</td>
-                    
-                </thead>
-                <tbody>
-                    { curList }
-                </tbody>                             
-                </table>       
-            </div>
-            <div className = {curTab === 1 ?"AdminPanel_tasks":"AP_none"}>
-                tasks
-                <select                 
-                    placeholder = "Фамілія вучня"
-                    onChange = { selectTasksFioChange }
-                    >
-                    {fios.map(el =>{
-                        return <option>{el}</option>
-                    })}                                                  
-                </select>
-                <select                 
-                    placeholder = "Назва тэста"
-                    onChange = { selectTasksTestChange }
-                    >
-                    {tests.map(el =>{
-                        return <option>{el.title}</option>
-                    })}                                                  
-                </select>
-                <input 
-                    type = "datetime-local"
-                    ></input>
-                <input 
-                    type = "datetime-local"
-                    ></input>
-                <button
-                    onClick = {() => {
-                        let qq = `http://82.209.229.159/sql_addTasks.php?
-                        user_fio=`+tasksUserFio+`&
-                        test_title=`+tasksTestTile+`&
-                        start="`+"2020-05-01 11:11:11"+`"&
-                        end="2020-05-01 11:11:11"`;
-                        console.log ( qq )
-                        fetch(qq)}}>ADD</button>
-            </div>
-           
+            </div>           
+            { tabSwitcher() }
         </div>
     )
 }
