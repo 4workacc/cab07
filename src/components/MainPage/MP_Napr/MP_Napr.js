@@ -20,8 +20,7 @@ const MP_Napr = () => {
                     let qq = el.allowIdList;
                     qq = qq.indexOf(',')===-1?[qq/1]:qq.split(',');
                     if (qq.length > 1 ){ qq = qq.map(el => el/1)};                             
-                    qq = (qq.indexOf(curUserId)>-1||curUserId === 12311);  
-                    console.log( curUserId );                                                                
+                    qq = (qq.indexOf(curUserId)>-1||curUserId === 12311);                                                                                    
                     if (el.type === "NAPR") {
                         arr.push(
                             <li 
