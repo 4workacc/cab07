@@ -5,8 +5,7 @@
     left: 50%;
     top: 75px;   
     margin-left: -500px;
-    border: 1px solid black;
-
+    
     display: flex;
     flex-direction: row;
     align-items: center;

@@ -35,7 +35,7 @@ class App extends React.Component {
     return (
       <div className = "App">
         { this.state.curPage }
-        { this.state.curSubPage }
+        {/* { this.state.curSubPage } */}
       </div>
     )
   } 

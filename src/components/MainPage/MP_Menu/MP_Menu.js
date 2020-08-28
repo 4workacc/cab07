@@ -83,12 +83,14 @@ const MP_Menu = () => {
     return(
         <div className = "MP_Menu">
             <div 
-                className = "MP_Menu_but MP_Menu_butL"
-                onClick =  {() => curMenuIndex > 0 ? changeIndex(curMenuIndex - 1):null}></div>
-            { curMenuElements }
+                className = "MP_Menu_but MP_Menu_butL "
+                onClick =  {() => curMenuIndex > 0 ? changeIndex(curMenuIndex - 1):null}>                   
+                </div>
+            { curMenuElements }            
             <div 
-                className = "MP_Menu_but MP_Menu_butR"
-                onClick =  {() => curMenuIndex < 3 ? changeIndex(curMenuIndex + 1):null}></div>
+                className = "MP_Menu_but MP_Menu_butR "
+                onClick =  {() => curMenuIndex < 3 ? changeIndex(curMenuIndex + 1):null}>                                   
+                </div>
         </div>
     )
 }
