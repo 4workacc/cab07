@@ -11,7 +11,7 @@ const MP_Tests = () => {
     const curUserId = useSelector( state =>state.curUserId);
     
     useEffect ( ()=>{       
-        fetch('http://82.209.229.159/sql_getTestsList.php')
+        fetch('https://cab07.000webhostapp.com/sql_getTestsList.php')
         .then((response) => {
             return response.json();
         })

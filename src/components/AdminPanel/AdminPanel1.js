@@ -15,7 +15,7 @@ const AdminPanel = () => {
     // TEST RESULTS
     // ???????????????????????????????????????????????????????????????????????????
     let getUsersFioSet = () => {
-        fetch('http://82.209.229.159/sql_Users.php')     
+        fetch('https://cab07.000webhostapp.com/sql_Users.php')     
         .then((response) => {
             return response.json();
         })
@@ -31,7 +31,7 @@ const AdminPanel = () => {
         });
     };
     let getTestsData = () => {
-        fetch('http://82.209.229.159/sql_Tests.php')     
+        fetch('https://cab07.000webhostapp.com/sql_Tests.php')     
         .then((response) => {
             return response.json();
         })
@@ -50,7 +50,7 @@ const AdminPanel = () => {
         });
     };
     let getTasksResultsData = () =>{
-        fetch('http://82.209.229.159/sql_getResults.php')     
+        fetch('https://cab07.000webhostapp.com/sql_getResults.php')     
         .then((response) => {
             return response.json();
         })

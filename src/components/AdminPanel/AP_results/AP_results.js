@@ -7,7 +7,7 @@ const AP_results = ({fios, tests, users}) => {
     const [ curFio, setCurFio ] = useState('');
 
     useEffect(() => {
-        fetch('http://82.209.229.159/sql_getResults.php')     
+        fetch('https://cab07.000webhostapp.com/sql_getResults.php')     
         .then((response) => {
             return response.json();
         })

@@ -58,7 +58,7 @@ const AP_tasks = ({ fios, tests }) => {
 
                 <button
                     onClick = {() => {
-                        let qq = `http://82.209.229.159/sql_addTasks.php?
+                        let qq = `https://cab07.000webhostapp.com/sql_addTasks.php?
                         user_fio=`+tasksUserFio+`&
                         test_title=`+tasksTestTile+`&
                         start=`+startTime+`&
