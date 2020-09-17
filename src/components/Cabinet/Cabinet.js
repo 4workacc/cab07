@@ -90,9 +90,11 @@ const Cabinet = () => {
            <div className = "Cabinet_task_bar">
            <table className = "Cabinet_table">
                 <thead>
-                    <td className = "CT0">Nazva testa</td>
-                    <td className = "CT1">пачатак</td>
-                    <td className = "CT2">канец</td>
+                    <tr>
+                        <td className = "CT0">Nazva testa</td>
+                        <td className = "CT1">пачатак</td>
+                        <td className = "CT2">канец</td>
+                    </tr>
                 </thead>
              { genTaskList() }
              </table>
