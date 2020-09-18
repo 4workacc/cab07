@@ -11,7 +11,7 @@ const AdminPanel = () => {
     const [curTab, changeTab ] = useState(0);
 
     useEffect(()=>{   
-        fetch('http://82.209.229.159/sql_Users.php')     
+        fetch('https://cab07.000webhostapp.com/sql_Users.php')     
         .then((response) => {
             return response.json();
         })
@@ -25,7 +25,7 @@ const AdminPanel = () => {
             setUsers(ww);           
             setFios (ff);           
         });
-        fetch('http://82.209.229.159/sql_Tests.php')     
+        fetch('https://cab07.000webhostapp.com/sql_Tests.php')     
         .then((response) => {
             return response.json();
         })

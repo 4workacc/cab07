@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState } from 'react';
 import "./LoginPage.css";
 
 import { useDispatch } from 'react-redux'; 
@@ -11,7 +11,7 @@ const LoginPage = () =>{
     const dispatch = useDispatch();
 
     let LP_fetchToServer = () => {       
-      fetch('http://82.209.229.159/sql_login.php?login='+login+'&pass='+pass)     
+      fetch('https://cab07.000webhostapp.com/sql_login.php?login='+login+'&pass='+pass)     
       .then((response) => {
         return response.json();
       })

@@ -107,14 +107,8 @@ const Test1 = () => {
                                 }
                                 else {
                                     SetMainScreen("Test1_none");
-                                    SetRezScreen("");
-                                    console.log(`http://82.209.229.159/sql_setTestResult.php?
-                                    user_id=`+curUserId+`&
-                                    test_id=`+testId+`&
-                                    start="`+startTime+`"&
-                                    end="`+getNow()+`"&
-                                    result=`+rightCount/20*100);
-                                    fetch(`http://82.209.229.159/sql_setTestResult.php?
+                                    SetRezScreen("");                                   
+                                    fetch(`https://cab07.000webhostapp.com/sql_setTestResult.php?
                                         user_id=`+curUserId+`&
                                         test_id=`+testId+`&
                                         start="`+startTime+`"&

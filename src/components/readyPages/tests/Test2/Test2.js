@@ -1,4 +1,4 @@
-import React , { useState, useEffect } from 'react';
+import React , { useState } from 'react';
 import './Test2.css';
 // 11 клас тэст варыянт 2
 
