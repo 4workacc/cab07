@@ -124,7 +124,9 @@ const MainPage = () =>{
                     }) }>Мысленне</li>                       
                 </ul>
             </div>
-            { curPage }            
+            <div className = "MPmain">
+                { curPage }            
+            </div>
             <div 
                 className = "MP_LoginPageBut"
                 onClick = {()=>loginButHandler()}>{curLoginButText}</div>        
