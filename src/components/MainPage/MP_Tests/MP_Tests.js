@@ -4,8 +4,7 @@ import './MP_Tests.css';
 import { useSelector, useDispatch } from 'react-redux';
 import AShowTest from '../../../redux/actions/AShowTest';
 
-const MP_Tests = () => {
-    const TestsList = useSelector( state => state.mpTestsList);
+const MP_Tests = () => {    
     const [ testList, setList] = useState();
     const dispatch = useDispatch();
     const curUserId = useSelector( state =>state.curUserId);

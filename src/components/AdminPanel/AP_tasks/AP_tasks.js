@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './AP_tasks.css';
 
 const AP_tasks = ({ fios, tests }) => {
