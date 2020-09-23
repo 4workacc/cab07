@@ -54,8 +54,7 @@ const AdminPanel = () => {
         return x;
     };
     return (
-        <div className = "AdminPanel">
-              
+        <div className = "AdminPanel">              
             <div className = "AdminPanel_nav">
                 <button 
                     className = "AdminPanel_tab_0"

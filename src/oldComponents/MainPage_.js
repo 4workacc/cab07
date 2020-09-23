@@ -1,6 +1,20 @@
 import React, { useState, useEffect} from 'react';
 import "./MainPage.css";
 
+import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcons from '@material-ui/core/MenuIcons';
+import Checkbox from '@material-ui/core/Checkbox';
+import Link from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+
 import { useDispatch } from 'react-redux'; 
 
 import MP_Menu from './MP_Menu/MP_Menu';
@@ -68,8 +82,8 @@ const MainPage = () =>{
         switch ( curUserId ) {
             case -1 :
                 dispatch({
-                    type :"LOGIN_PANEL_SWITCHER",
-                    newCurShowLoginPanel : curShowLoginPanel === 0 ? 1 : 0
+                    type : "ROUTE_TO_PAGE",
+                    pageName : "LoginPage"
                 });
                 break;
             case 12311 : 
@@ -88,7 +102,7 @@ const MainPage = () =>{
     }
     return(
         <div className = "MainPage">
-            <div className = "MP_MainNav">
+            {/* <div className = "MP_MainNav">
                 <ul className = "MP_MainNav_HeadNav">
                     <li onClick = { () => dispatch({
                         type : "SHOW_PAGE",
@@ -123,16 +137,13 @@ const MainPage = () =>{
                         page : "MP_Misl"
                     }) }>Мысленне</li>                       
                 </ul>
-            </div>
+            </div> */}    
             <div className = "MPmain">
                 { curPage }            
             </div>
             <div 
                 className = "MP_LoginPageBut"
-                onClick = {()=>loginButHandler()}>{curLoginButText}</div>        
-            <MPortal>
-                <LoginPage />
-            </MPortal>
+                onClick = {()=>loginButHandler()}>{curLoginButText}</div>                    
         </div>
     )
 }

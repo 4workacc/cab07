@@ -3,8 +3,7 @@ let initState = {
     curUserFIO : '',
     curPage : "MainPage",
     curMenuPage : "MP_Menu",
-    curSubPage : "none",
-    curShowLoginPanel : 0,    
+    curSubPage : "none",      
     curLoginButText : "Уваход",
     curUserTask : '',
     mpNaprList : [

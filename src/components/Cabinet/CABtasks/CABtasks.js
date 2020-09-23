@@ -85,8 +85,7 @@ const CABtasks = () => {
        return arr;
     };
     return (
-        <div className = "CABtasks">      
-           <p className = "CABtasks_header"> Заданні для выканання </p>
+        <div className = "CABtasks">                
            <div className = "CABtasks_task_bar">
            <table className = "CABtasks_table">
                 <thead>

@@ -1,13 +1,12 @@
 import initState from './initState';
 
 let initRed = (state = initState, action) => {
-    switch ( action.type ) {
-        // case "LOG_IN" : 
-        //     return {
-        //         ...state,
-        //         curUserId : action.data.newUserId,
-        //         curPage : "MainPage"          
-        //         };
+    switch ( action.type ) {   
+        case "ROUTE_TO_PAGE" : 
+            return {
+                ...state,
+                curPage : action.pageName
+            }
         case "SHOW_PAGE" :        
             return {
                 ...state, 
@@ -19,15 +18,6 @@ let initRed = (state = initState, action) => {
                 curMenuPage : action.page,
                 curUserTask : action.curUserTask
             };
-        
-        // case "SWITCH_LOGIN_PANEL" : 
-        //     return {
-        //         ...state,
-        //         curShowLoginPanel : action.newState,
-        //         curUserId : action.userId,
-        //         curLoginButText : action.newLoginButText,
-        //         curMenuPage : "MainPage"
-        //     }
         case "LOGIN_PANEL_SWITCHER" :
             return {
                 ...state,
@@ -36,10 +26,9 @@ let initRed = (state = initState, action) => {
         case "SYSTEM_LOG_IN" :
             return {
                 ...state,
-                curUserId : action.curUserId,
-                curShowLoginPanel: 0,
-                curLoginButText : "Кабінет",
-                curMenuPage : "MainPage"
+                curUserId : action.curUserId,                
+                curLoginButText : action.LoginButText,
+                curPage : "MainPage"
             }   
         default : 
             return state

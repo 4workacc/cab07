@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 
-import MainPage from '../MainPage/MainPage';
-import LoginPage from '../LoginPage/LoginPage';
+import MainPage from '../MainPage/MainPageMaterial';
+import LoginPage from '../LoginPageMaterial/LoginPage';
 
 import { connect } from 'react-redux';
 class App extends React.Component {
