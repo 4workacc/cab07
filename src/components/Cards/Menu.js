@@ -34,6 +34,7 @@ const CardMenu = [
     <MenuCard  data = {{title: "aq5", text: "asdasd"} }/>,
     <MenuCard  data = {{title: "aq6", text: "asdasd"} }/>
 ]
+
 const Menu = () => {    
     const classes = useStyles();    
     const [ curIndex, changeIndex ] = useState(0);
